@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+
+
+/// Clase de configuracion de conexion con base de datos
+
+public class Mapeo : DbContext
+{
+    static Mapeo()
+    {
+        Database.SetInitializer<Mapeo>(null);
+    }
+    private readonly string schema;
+    public Mapeo() : base("name=Conexion")
+    {
+
+    }
+    //---------------------------------------//
+    public DbSet<E_user>usuario { get; set; }
+    //---------------------------------------//
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.HasDefaultSchema(this.schema);
+        base.OnModelCreating(modelBuilder);
+    }
+}
