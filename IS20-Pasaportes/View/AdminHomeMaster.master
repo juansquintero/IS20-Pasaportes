@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="~/Controller/AdminHomeMaster.master.cs" Inherits="View_AdminHomeMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BEDTRANS - Administrador</title>
+    <link href="../App_Themes/CSS/AdminHome.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<html>  
+<head>  
+    <title>my layout</title>  
+    <link rel="stylesheet" type="text/css" href="AdminHome.css">  
+</head>  
+<body>  
+<header id="header">  
+<h1>Beneficio de trasporte</h1>  
+</header>  
+<nav id="nav">  
+    <ul>  
+        <li><a href="Registro_Pc.aspx">Mostrar usuarios</a></li>  
+        <li><a href="Registro_Xbox.aspx">Añadir usuarios</a></li>  
+        <li><a href="Registro_Ps4.aspx">Cambiar usuarios</a></li>  
+        <li><a href="Registro_Torneo.aspx">Pasaportes beneficiarios</a></li>  
+        <li><a href="Registro_Torneo.aspx">Rutas</a></li>  
+    </ul>  
+</nav>  
+    <div id="con">  
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">  
+            <header id="header2">
+              <h1 style="text-align:center">Bienvenido Beneficiario</h1>
+          </header>
+          <img src="../Images/bus.jpg" alt="Bus lindo" style="width:100%;height:600px;">
+            <h1><p>Bonos de trasporte proyecto IS20</p></h1>
+
+            <p>Este es un proyecto enfocado en la automatizacion de el sistema que utilizan 
+                la alcaldia de Mosquera para la entrega y utilizacion de bonos de trasporte 
+                entregados a los estudiantes de cualquier institucion de educacion superior 
+                que quede fuera de el municipio.</p> 
+
+      <pre>    
+  -Eliminacion de pasaportes en papel
+  -Uso de nuevas tecnologias
+  -Proyecto universitario
+      </pre>
+    <a href="https://github.com/juansquintero/IS20-Pasaportes" class="button">Codigo fuente y documentacion</a>
+        </asp:ContentPlaceHolder>  
+    </div>  
+  
+  
+<footer id="footer">  
+    Juan Sebastian Quintero | Mateo Villalobos
+</footer>  
+</body>
+</html>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
+

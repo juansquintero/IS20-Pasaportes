@@ -26,17 +26,17 @@ public partial class View_Login : System.Web.UI.Page
         else if (e_user.Id_rol == 1)
         {
             ((Label)LG_Proyecto.FindControl("L_Mensaje")).Text = "Bienvenido señor administrador";
-            //Response.Redirect("adminForm.aspx");
+            Response.Redirect("AdminHome.aspx");
         }
         else if (e_user.Id_rol == 2)
         {
             ((Label)LG_Proyecto.FindControl("L_Mensaje")).Text = "Bienvenido beneficiario";
-            //Response.Redirect("beneficiaro");
+            Response.Redirect("UserHome.aspx");
         }
         else if (e_user.Id_rol == 3)
         {
             ((Label)LG_Proyecto.FindControl("L_Mensaje")).Text = "Bienvenido conductor";
-            //Response.Redirect("conductor");
+            Response.Redirect("DriverHome.aspx");
         }
     }
 }
