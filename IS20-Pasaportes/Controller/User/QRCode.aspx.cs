@@ -12,7 +12,6 @@ public partial class View_User_QRCode : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
         QRCodeGenerator qrGenerator = new QRCodeGenerator();
         QRCodeData qrCodeData = qrGenerator.CreateQrCode("Hola como estas", QRCodeGenerator.ECCLevel.Q);
         QRCode qrCode = new QRCode(qrCodeData);
@@ -29,7 +28,5 @@ public partial class View_User_QRCode : System.Web.UI.Page
             }
             QR_PlaceHolder.Controls.Add(imgBarCode);
         }
-
-        
     }
 }
