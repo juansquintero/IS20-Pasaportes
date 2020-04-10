@@ -12,6 +12,11 @@ public partial class View_User_QRCode : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //E_user e_user = new E_user();
+        //LB_QR.Text = e_user.Qr_hash;
+        //E_user q_user = new DAO_Login().QR(e_user);
+        //string code = e_user.Qr_hash;
+
         QRCodeGenerator qrGenerator = new QRCodeGenerator();
         QRCodeData qrCodeData = qrGenerator.CreateQrCode("Hola como estas", QRCodeGenerator.ECCLevel.Q);
         QRCode qrCode = new QRCode(qrCodeData);
