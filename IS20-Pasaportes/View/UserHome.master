@@ -21,7 +21,7 @@
 </header>  
 <nav id="nav">  
     <ul>  
-        <li><a href="Registro_Pc.aspx">Mostrar codigo QR</a></li>  
+        <li><a href="../View/User/QRCode.aspx">Mostrar codigo QR</a></li>  
         <li><a href="Registro_Xbox.aspx">Reuniones pendientes</a></li>  
         <li><a href="Registro_Ps4.aspx">Datos de usuario</a></li>  
         <li><a href="Registro_Torneo.aspx">Cerrar sesion</a></li>    
