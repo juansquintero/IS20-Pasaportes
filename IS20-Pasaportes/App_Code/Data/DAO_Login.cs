@@ -16,11 +16,11 @@ public class DAO_Login
         }
     }
 
-    public E_user QR(E_user user)
+    public string QR()
     {
         using (var db = new Mapeo())
         {
-            return db.usuario.Where(x => x.Qr_hash.Equals(user.Qr_hash)).FirstOrDefault();
+            return db.usuario.FirstOrDefault().Qr_hash; 
         }
     }
 }

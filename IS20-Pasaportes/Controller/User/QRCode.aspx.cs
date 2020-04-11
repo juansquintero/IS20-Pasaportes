@@ -12,13 +12,13 @@ public partial class View_User_QRCode : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //E_user e_user = new E_user();
-        //LB_QR.Text = e_user.Qr_hash;
+        DAO_Login e_user = new DAO_Login();
+        LB_QR.Text = e_user.QR();
         //E_user q_user = new DAO_Login().QR(e_user);
-        //string code = e_user.Qr_hash;
+        string code = e_user.QR();
 
         QRCodeGenerator qrGenerator = new QRCodeGenerator();
-        QRCodeData qrCodeData = qrGenerator.CreateQrCode("Hola como estas", QRCodeGenerator.ECCLevel.Q);
+        QRCodeData qrCodeData = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
         QRCode qrCode = new QRCode(qrCodeData);
         System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
         imgBarCode.Height = 150;
