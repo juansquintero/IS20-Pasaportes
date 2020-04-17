@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 /// <summary>
 /// Summary description for DAO_Admin
@@ -41,4 +42,26 @@ public class DAO_Admin
                     }).ToList();
         }
     }
+
+    public void addUser(E_user user)
+    {
+        using (var db = new Mapeo())
+        {
+            db.usuario.Add(user);
+            db.SaveChanges();
+        }
+    }
+
+    public void deleteUser(E_user user)
+    {
+        using (var db = new Mapeo())
+        {
+            db.usuario.Attach(user);
+            var entry = db.Entry(user);
+            entry.State = EntityState.Deleted;
+            db.SaveChanges();
+        }
+    }
+
+
 }
