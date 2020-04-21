@@ -22,10 +22,10 @@
 <nav id="nav">  
     <ul>  
         <li><a href="Admin/MostrarUsers.aspx">Mostrar usuarios</a></li>  
-        <li><a href="Registro_Xbox.aspx">Añadir usuarios</a></li>  
-        <li><a href="Registro_Ps4.aspx">Cambiar usuarios</a></li>  
+        <li><a href="Registro_Xbox.aspx">Cambiar usuarios</a></li>   
         <li><a href="Registro_Torneo.aspx">Pasaportes beneficiarios</a></li>  
-        <li><a href="Registro_Torneo.aspx">Rutas</a></li>  
+        <li><a href="Registro_Torneo.aspx">Rutas</a></li>
+        <li><a href="Registro_Torneo.aspx">Cerrar sesion</a></li>
     </ul>  
 </nav>  
     <div id="con">  

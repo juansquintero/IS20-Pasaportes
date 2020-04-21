@@ -4,9 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-/// <summary>
-/// Summary description for DAO_Admin
-/// </summary>
+/// Funciones administrador 
+
 public class DAO_Admin
 {
     public List<E_rol> getRol()
