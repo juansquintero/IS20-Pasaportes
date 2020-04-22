@@ -12,8 +12,10 @@ public partial class View_User_QRCode : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        var Qr = ((E_user)Session["validUser"]).Qr_hash;
+        
         QRCodeGenerator qrGenerator = new QRCodeGenerator();
-        QRCodeData qrCodeData = qrGenerator.CreateQrCode("Hola como estas", QRCodeGenerator.ECCLevel.Q);
+        QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qr, QRCodeGenerator.ECCLevel.Q);
         QRCode qrCode = new QRCode(qrCodeData);
         System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
         imgBarCode.Height = 150;
@@ -28,5 +30,14 @@ public partial class View_User_QRCode : System.Web.UI.Page
             }
             QR_PlaceHolder.Controls.Add(imgBarCode);
         }
+        LB_QR.Text = Qr;
+        LB_Usuario.Text = ((E_user)Session["validUser"]).Name;
+        LB_UserApellido.Text = ((E_user)Session["validUser"]).Last_name;
+
+    }
+
+    protected void BT_Session_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/View/AdminHome.aspx");
     }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using QRCoder;
+using System.IO;
+using System.Drawing;
 
 /// Funciones administrador 
 

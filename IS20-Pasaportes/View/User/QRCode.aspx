@@ -16,6 +16,20 @@
             width: 1342px;
             align-self: center;
         }
+        .auto-style3 {
+            width: 1342px;
+            align-self: center;
+            height: 26px;
+        }
+        .auto-style4 {
+            width: 916px;
+            align-self: center;
+        }
+        .auto-style5 {
+            width: 916px;
+            align-self: center;
+            height: 26px;
+        }
     </style>
 </head>
 <body>
@@ -23,23 +37,66 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style2"><h1 style="text-align:center">Codigo QR</h1></td>
+                    <td class="auto-style2"><h1 style="text-align:center">&nbsp;</h1></td>
+                    <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CODIGO QR</td>
+                    <td class="auto-style2">&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Label ID="LB_Usuario" runat="server"></asp:Label>
+                    </td>
                     <td class="auto-style2">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Label ID="LB_UserApellido" runat="server"></asp:Label>
+                    </td>
+                    <td class="auto-style2">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><asp:PlaceHolder ID="QR_PlaceHolder" runat="server">
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style4"><asp:PlaceHolder ID="QR_PlaceHolder" runat="server">
 
                                             </asp:PlaceHolder></td>
+                    <td class="auto-style2">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
+                        &nbsp;</td>
+                    <td class="auto-style4">
                         <asp:Label ID="LB_QR" runat="server"></asp:Label>
                     </td>
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                    <td class="auto-style4">
+                        &nbsp;</td>
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Button ID="BT_Session" runat="server" OnClick="BT_Session_Click" Text="Salir" />
+                    </td>
+                    <td class="auto-style2">
+                        &nbsp;</td>
                 </tr>
             </table>
         </div>
