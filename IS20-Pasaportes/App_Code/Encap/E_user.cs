@@ -25,6 +25,8 @@ public class E_user
     private Nullable<DateTime> lastModified;
     private int? id_driver;
     private string qr_hash;
+    private string mail;
+    private string token;
    
     //FK
 
@@ -60,6 +62,12 @@ public class E_user
     public int? Id_ruta { get => id_ruta; set => id_ruta = value; }
     [Column("qr_hash")]
     public string Qr_hash { get => qr_hash; set => qr_hash = value; }
+    [Column("mail")]
+    public string Mail { get => mail; set => mail = value; }
+    [Column("token")]
+    public string Token { get => token; set => token = value; }
+
+
 
     //FK
 

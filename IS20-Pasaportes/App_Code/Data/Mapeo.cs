@@ -23,7 +23,8 @@ public class Mapeo : DbContext
     public DbSet<E_rol> rol { get; set; }
     public DbSet<E_ruta> ruta { get; set; }
     public DbSet<E_driver> driver { get; set; }
-    public DbSet<E_reunion> reunion { get; set; }
+    public DbSet<E_reunion> reunion { get; set;}
+    public DbSet<E_Auth> autentication { get; set; }
     //---------------------------------------//
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
