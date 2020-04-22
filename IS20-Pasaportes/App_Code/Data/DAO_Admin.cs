@@ -16,6 +16,22 @@ public class DAO_Admin
         }
     }
 
+    public List<E_ruta> getRuta()
+    {
+        using (var db = new Mapeo())
+        {
+            return db.ruta.ToList();
+        }
+    }
+
+    public List<E_driver> getDriver()
+    {
+        using (var db = new Mapeo())
+        {
+            return db.driver.ToList();
+        }
+    }
+
     public List<E_user> getUserBeneficiario()
     {
         using (var db = new Mapeo())
