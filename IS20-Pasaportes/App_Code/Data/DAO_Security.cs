@@ -28,7 +28,8 @@ public class DAO_Security
     {
         using (var db = new Mapeo())
         {
-            E_Auth auth = db.autentication.Where(x => x.Session == authenticate.Session && x.User_id == authenticate.User_id).First();
+            E_Auth auth = new E_Auth();
+            auth = db.autentication.Where(x => x.Session == authenticate.Session && x.User_id == authenticate.User_id).First();
             auth.fecha_Fin = DateTime.Now;
             db.autentication.Attach(auth);
             var entry = db.Entry(auth);

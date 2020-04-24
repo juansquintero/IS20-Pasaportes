@@ -12,6 +12,13 @@
         .auto-style2 {
             height: 14px;
         }
+        .auto-style3 {
+            height: 26px;
+            width: 542px;
+        }
+        .auto-style4 {
+            width: 542px;
+        }
     </style>
 </head>
 
@@ -94,7 +101,7 @@
      </td>  
                     </tr>  
                     <tr>  
-                        <td class="auto-style1">  
+                        <td class="auto-style3">  
                             &nbsp;</td>  
                         <td class="auto-style1">  
                             &nbsp;</td>  
@@ -102,7 +109,7 @@
                             &nbsp;</td>  
                     </tr>  
                     <tr>  
-                        <td class="style2">  
+                        <td class="auto-style4">  
                             &nbsp;</td>  
                         <td>  
                             &nbsp;</td>  
@@ -110,11 +117,11 @@
                             &nbsp;</td>  
                     </tr>  
                     <tr>  
-                        <td class="style2">  
+                        <td class="auto-style4">  
                             &nbsp;</td>  
                     </tr>  
                     <tr>  
-                        <td class="style2">  
+                        <td class="auto-style4">  
      </td>  
                         <td>  
                             &nbsp;</td>  

@@ -21,9 +21,8 @@
 </header>  
 <nav id="nav">  
     <ul>  
-        <li><a href="Registro_Pc.aspx">Escanear codigo QR</a></li>  
-        <li><a href="Registro_Xbox.aspx">Bonos recibidos</a></li>  
-        <li><a href="Registro_Ps4.aspx">Informacion</a></li>  
+        <li><a href="../View/Driver/QRScan.aspx">Escanear codigo QR</a></li>  
+        <li><a href="Driver/Get_TotalBonos.aspx">Bonos recibidos</a></li>  
         <li><a href="sessionClose.aspx">Cerrar sesion</a></li>    
     </ul>  
 </nav>  

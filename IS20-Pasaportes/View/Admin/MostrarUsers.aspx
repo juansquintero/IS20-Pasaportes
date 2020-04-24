@@ -16,35 +16,53 @@
         <div>
             <table class="auto-style1">
                 <tr>
+                    <td align="center"><h1>Usuarios registrados</h1></td>
+                </tr>
+            </table>
+            <br />
+            <table class="auto-style1">
+                <tr>
                     <td>
-                        <asp:ObjectDataSource ID="ODS_UsersMostrar" runat="server" SelectMethod="getUserBeneficiario" TypeName="DAO_Admin"></asp:ObjectDataSource>
-                        <asp:GridView ID="GV_Mostrar" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="ODS_UsersMostrar" Width="100%">
+                        <asp:ObjectDataSource ID="ODS_UsersMostrar" runat="server" SelectMethod="getUserBeneficiario" TypeName="DAO_Admin" DataObjectTypeName="E_user" DeleteMethod="deleteUser" InsertMethod="addUser" OnSelecting="ODS_UsersMostrar_Selecting" UpdateMethod="editUser"></asp:ObjectDataSource>
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ODS_UsersMostrar" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="100%">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
-                                <asp:BoundField DataField="Name_rol" HeaderText="Rol" SortExpression="Name_rol" />
-                                <asp:BoundField DataField="Name" HeaderText="Nombre" SortExpression="Name" />
-                                <asp:BoundField DataField="Last_name" HeaderText="Apellido" SortExpression="Last_name" />
-                                <asp:BoundField DataField="User" HeaderText="Usuario" SortExpression="User" />
-                                <asp:BoundField DataField="Pass" HeaderText="Contraseña" SortExpression="Pass" />
-                                <asp:BoundField DataField="Name_ruta" HeaderText="Ruta" SortExpression="Name_ruta" />
-                                <asp:BoundField DataField="Pasaporte_numero" HeaderText="Pasaportes" SortExpression="Pasaporte_numero" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Id_rol" HeaderText="Identificacion de rol" SortExpression="Id_rol" />
+                                <asp:BoundField DataField="Name_rol" HeaderText="Rol" ReadOnly="True" SortExpression="Name_rol" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Name" HeaderText="Nombre" SortExpression="Name" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Last_name" HeaderText="Apellido" SortExpression="Last_name" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="User" HeaderText="Usuario" SortExpression="User" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Pass" HeaderText="Contraseña" SortExpression="Pass" />
                                 <asp:CheckBoxField DataField="Activo" HeaderText="Activo" SortExpression="Activo" />
-                                <asp:BoundField DataField="Qr_hash" HeaderText="Identificador" SortExpression="Qr_hash" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Id_driver" HeaderText="Identificacion de conductor" SortExpression="Id_driver" />
+                                <asp:BoundField DataField="Name_empresa" HeaderText="Empresa" ReadOnly="True" SortExpression="Name_empresa" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Id_ruta" HeaderText="Identificacion de ruta" SortExpression="Id_ruta" />
+                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Name_ruta" HeaderText="Ruta" ReadOnly="True" SortExpression="Name_ruta" />
+                                <asp:BoundField DataField="Mail" HeaderText="Correo" SortExpression="Mail" />
+                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             </Columns>
-                            <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-                            <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                            <RowStyle BackColor="White" ForeColor="#330099" />
-                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                            <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                            <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                            <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                            <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
                     </td>
                 </tr>
             </table>
         </div>
+        <table class="auto-style1">
+            <tr>
+                <td align="center">
+                    <asp:Button ID="BT_Salir" runat="server" Text="Salir" OnClick="BT_Salir_Click" />
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>

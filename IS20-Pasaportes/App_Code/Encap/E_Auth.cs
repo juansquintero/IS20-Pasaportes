@@ -14,7 +14,7 @@ public class E_Auth
     private string ip;
     private string mac;
     private DateTime fecha_inicio;
-    private DateTime? fecha_fin;
+    private Nullable<DateTime> fecha_fin;
     private string session;
 
     [Key]

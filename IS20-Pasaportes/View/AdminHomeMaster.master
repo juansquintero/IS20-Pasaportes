@@ -22,9 +22,10 @@
 <nav id="nav">  
     <ul>  
         <li><a href="Admin/MostrarUsers.aspx">Mostrar usuarios</a></li>  
-        <li><a href="Admin/AddUser.aspx">Cambiar usuarios</a></li>   
+        <li><a href="Admin/AddUser.aspx">Añadir usuario</a></li>    
+        <li><a href="Admin/AddUser.aspx">Empresas y rutas</a></li> 
         <li><a href="Registro_Torneo.aspx">Pasaportes beneficiarios</a></li>  
-        <li><a href="Registro_Torneo.aspx">Rutas</a></li>
+        <li><a href="Registro_Torneo.aspx">Reuniones</a></li>
         <li><a href="sessionClose.aspx">Cerrar sesion</a></li>
     </ul>  
 </nav>  

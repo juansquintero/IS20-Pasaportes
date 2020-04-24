@@ -15,9 +15,8 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("/View/Login.aspx");
         }
-
     }
 
     protected void BT_Enviar_Click(object sender, EventArgs e)
@@ -37,6 +36,7 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
         e_user.Id_rol = int.Parse(DDL_Rol.SelectedValue);
         e_user.Id_driver = int.Parse(DDL_IdeConductor.SelectedValue);
         e_user.LastModified = DateTime.Now;
+        e_user.Qr_hash = RNG_Gen.RNG_gen();
 
         new DAO_Admin().addUser(e_user);
 

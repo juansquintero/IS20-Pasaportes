@@ -26,6 +26,10 @@
         .auto-style6 {
             height: 23px;
         }
+        .auto-style7 {
+            font-weight: normal;
+            font-size: xx-large;
+        }
     </style>
 </head>
 <body>
@@ -33,11 +37,9 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style3">
-                        <asp:Label ID="Label1" runat="server" Text="Bienvenido al registro" Width="100%"></asp:Label>
+                    <td colspan="3">
+                        <h1 class="auto-style7"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BIENVENIDO AL REGISTRO</strong></h1>
                     </td>
-                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
@@ -46,11 +48,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label ID="Label2" runat="server" Text="ID"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="TB_Id" runat="server"></asp:TextBox>
-                    </td>
+                        &nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -69,7 +69,8 @@
                         <asp:Label ID="Label4" runat="server" Text="Nombre"></asp:Label>
                     </td>
                     <td class="auto-style5">
-                        <asp:TextBox ID="TB_Nombre" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TB_Nombre" runat="server" ToolTip="Nombre" ValidateRequestMode="Enabled"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" id="RFV" controltovalidate="TB_Nombre" errormessage="!Este campo es obligatorio!" />
                     </td>
                     <td class="auto-style6"></td>
                 </tr>
@@ -78,7 +79,9 @@
                         <asp:Label ID="Label5" runat="server" Text="Apellido"></asp:Label>
                     </td>
                     <td class="auto-style5">
-                        <asp:TextBox ID="TB_Apellido" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TB_Apellido" runat="server" ValidateRequestMode="Enabled"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" id="RFV2" controltovalidate="TB_Apellido" errormessage="!Este campo es obligatorio!" />
+
                     </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
@@ -88,6 +91,8 @@
                     </td>
                     <td class="auto-style5">
                         <asp:TextBox ID="TB_User" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" id="RFV3" controltovalidate="TB_User" errormessage="!Este campo es obligatorio!" />
+
                     </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
@@ -97,6 +102,8 @@
                     </td>
                     <td class="auto-style5">
                         <asp:TextBox ID="TB_Pass" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" id="RFV4" controltovalidate="TB_Pass" errormessage="!Este campo es obligatorio!" />
+
                     </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
@@ -114,7 +121,7 @@
                         <asp:Label ID="Label10" runat="server" Text="Rol"></asp:Label>
                     </td>
                     <td class="auto-style5">
-                        <asp:DropDownList ID="DDL_Rol" runat="server" DataSourceID="ODS_Rol" DataTextField="Rol_name" DataValueField="Id">
+                        <asp:DropDownList ID="DDL_Rol" runat="server" DataSourceID="ODS_Rol" DataTextField="Rol_name" DataValueField="Id" ValidateRequestMode="Enabled">
                         </asp:DropDownList>
                         <asp:ObjectDataSource ID="ODS_Rol" runat="server" SelectMethod="getRol" TypeName="DAO_Admin"></asp:ObjectDataSource>
                     </td>
@@ -137,6 +144,8 @@
                     </td>
                     <td class="auto-style5">
                         <asp:TextBox ID="TB_Correo" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator1" controltovalidate="TB_Correo" errormessage="!Este campo es obligatorio!" />
+
                     </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>

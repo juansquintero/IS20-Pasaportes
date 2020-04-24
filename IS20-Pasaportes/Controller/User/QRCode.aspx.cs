@@ -12,6 +12,17 @@ public partial class View_User_QRCode : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["validUser"] != null && ((E_user)Session["validUser"]).Id_rol == 2)
+        {
+
+        }
+        else
+        {
+            Response.Redirect("/View/Login.aspx");
+        }
+
+
+
         var Qr = ((E_user)Session["validUser"]).Qr_hash;
         
         QRCodeGenerator qrGenerator = new QRCodeGenerator();

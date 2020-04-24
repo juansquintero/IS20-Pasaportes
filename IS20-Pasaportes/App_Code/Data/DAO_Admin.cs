@@ -80,6 +80,25 @@ public class DAO_Admin
             db.SaveChanges();
         }
     }
+    
+    public void editUser(E_user e_user)
+    {
+        using (var db = new Mapeo())
+        {
+            E_user e_user2 = db.usuario.Where(x => x.Id == e_user.Id).First();
+            e_user2.Name = e_user.Name;
+            e_user2.Last_name = e_user.Last_name;
+            e_user2.User = e_user.User;
+            e_user2.Pass = e_user.Pass;
+            e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
+            e_user2.Activo = e_user.Activo;
+            e_user2.Id_driver = e_user.Id_driver;
+            e_user2.Mail = e_user.Mail;
+            e_user2.LastModified = DateTime.Now;
 
-
+            db.usuario.Attach(e_user2);
+            var entry = db.Entry(e_user2);
+            db.SaveChanges();
+        }
+    }
 }
