@@ -21,7 +21,7 @@
 </header>  
 <nav id="nav">  
     <ul>  
-        <li><a href="../View/Driver/QRScan.aspx">Escanear codigo QR</a></li>  
+        <li><a href="Driver/CS.aspx">Escanear codigo QR</a></li>  
         <li><a href="Driver/Get_TotalBonos.aspx">Bonos recibidos</a></li>  
         <li><a href="sessionClose.aspx">Cerrar sesion</a></li>    
     </ul>  
