@@ -101,4 +101,12 @@ public class DAO_Admin
             db.SaveChanges();
         }
     }
+
+    public E_user getQrUser(string qr)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Qr_hash.Equals(qr)).FirstOrDefault();
+        }
+    }
 }
