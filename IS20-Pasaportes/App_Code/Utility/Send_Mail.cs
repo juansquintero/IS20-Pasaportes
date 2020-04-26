@@ -18,22 +18,22 @@ public class Send_Mail
     {
         try
         {
-            //var EmailTemplate = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Template\\mailer.html"));
-            //var strBody = string.Format(EmailTemplate.ReadToEnd(), userToken);
-            //EmailTemplate.Close(); EmailTemplate.Dispose(); EmailTemplate = null;
+            var EmailTemplate = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "App_Code/Template/mailer2.html"));
+            var strBody = string.Format(EmailTemplate.ReadToEnd(), userToken);
+            EmailTemplate.Close(); EmailTemplate.Dispose(); EmailTemplate = null;
 
-            //strBody = strBody.Replace("#TOKEN#", "A continuacion se le enviara su usuario y contraseña");
+            strBody = strBody.Replace("#TOKEN#", "Su usuario es: " + user + " Su contraseña es: " + pass + userToken);
             MailMessage mailM = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             mailM.From = new MailAddress("SABT_registro@sabt.com", "SABT");
             SmtpServer.Host = "smtp.gmail.com";
-            mailM.Subject = "Registro usuario";
-            mailM.Body = "Hola";
+            mailM.Subject = "Bienvenido";
+            mailM.Body = strBody;
             mailM.To.Add(destMail);
             mailM.IsBodyHtml = true;
             mailM.Priority = MailPriority.Normal;
             SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("is20pasaportes@gmail.com", "is20_2020");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("is20pasaportes@gmail.com", "tueomzhsfsvorbfq");
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mailM);
         }

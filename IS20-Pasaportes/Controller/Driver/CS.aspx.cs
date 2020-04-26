@@ -52,7 +52,7 @@ public partial class _Default : System.Web.UI.Page
     {
         ClientScriptManager cm = this.ClientScript;
         //Aplicar un path virtual no fisico
-        string[] data = BarcodeReader.read("C:/Users/Sebastian Quintero/source/repos/IS20-Pasaportes/IS20-Pasaportes/Captures/qr_code.png", BarcodeReader.QRCODE);
+        string[] data = BarcodeReader.read(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Captures/qr_code.png"), BarcodeReader.QRCODE);
         string result = String.Concat(data);
 
         if (result == null || result == "") 
@@ -66,6 +66,6 @@ public partial class _Default : System.Web.UI.Page
             LB_QRCode.Text = result;
         }
         //Mirar se se puede con un path virtual no fisico
-        File.Delete(@"C:\Users\Sebastian Quintero\source\repos\IS20-Pasaportes\IS20-Pasaportes\Captures\qr_code.png");
+        File.Delete(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Captures/qr_code.png"));
     }
 }

@@ -49,12 +49,18 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
 
         
 
-        //Send_Mail mail = new Send_Mail();
-        //mail.sendMail(e_user.Mail, e_user.Token, e_user.User_name, e_user.Pass);
+        Send_Mail mail = new Send_Mail();
+        mail.sendMail(e_user.Mail, e_user.Token, e_user.User_name, e_user.Pass);
 
         new DAO_Admin().addUser(e_user);
 
         cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario ha sido registrado');</script>");
+
+        //TB_User.Text = String.Empty;
+        //TB_Pass.Text = String.Empty;
+        //TB_Nombre.Text = String.Empty;
+        //TB_Correo.Text = String.Empty;
+        //TB_Apellido.Text = String.Empty;
     }
 
     protected void BT_Salir_Click(object sender, EventArgs e)

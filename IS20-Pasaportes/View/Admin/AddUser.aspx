@@ -144,6 +144,7 @@
                     </td>
                     <td class="auto-style5">
                         <asp:TextBox ID="TB_Correo" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TB_Correo" ErrorMessage="Formato de correo invalido"></asp:RegularExpressionValidator>
                         <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator1" controltovalidate="TB_Correo" errormessage="!Este campo es obligatorio!" />
 
                     </td>
@@ -159,7 +160,7 @@
                         <asp:Button ID="BT_Enviar" runat="server" OnClick="BT_Enviar_Click" Text="Enviar" />
                     </td>
                     <td class="auto-style5">
-                        <asp:Button ID="BT_Salir" runat="server" OnClick="BT_Salir_Click" Text="Salir" />
+                        <asp:Button ID="BT_Salir" runat="server" OnClick="BT_Salir_Click" Text="Salir" CausesValidation="False" />
                     </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
