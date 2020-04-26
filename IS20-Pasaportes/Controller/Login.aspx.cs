@@ -24,7 +24,7 @@ public partial class View_Login : System.Web.UI.Page
         authenticate.fecha_Fin = DateTime.Now;
         authenticate.Ip = connection.ip();
         authenticate.Mac = connection.mac();
-        authenticate.Id = ((E_user)Session["validUser"]).Id;
+        authenticate.User_id = ((E_user)Session["validUser"]).Id;
         authenticate.Session = Session.SessionID;
         new DAO_Security().insertAuthetication(authenticate);
     }
@@ -33,7 +33,7 @@ public partial class View_Login : System.Web.UI.Page
     {
         ClientScriptManager cm = this.ClientScript;
         E_user e_user = new E_user();
-        e_user.User = LG_Proyecto.UserName.ToString();
+        e_user.User_name = LG_Proyecto.UserName.ToString();
         e_user.Pass = LG_Proyecto.Password.ToString();
         e_user = new DAO_Login().Login(e_user);
 
@@ -41,7 +41,7 @@ public partial class View_Login : System.Web.UI.Page
         {
             ((Label)LG_Proyecto.FindControl("L_Mensaje")).Text = "Usuario o contraseña incorrecto";
         }
-        else if (e_user.StateId == 2)
+        else if (e_user.State_Id == 2)
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su cuenta esta en espera de Recuperar Contraseña');</script>");
             return;

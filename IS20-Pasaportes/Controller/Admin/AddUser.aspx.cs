@@ -28,10 +28,10 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
         //e_user.Id = int.Parse(TB_Id.Text);
         e_user.Name = TB_Nombre.Text;
         e_user.Last_name = TB_Apellido.Text;
-        e_user.User = TB_User.Text;
+        e_user.User_name = TB_User.Text;
         e_user.Pass = TB_Pass.Text;
         e_user.Mail = TB_Correo.Text;
-        e_user.Sesion = ((E_user)Session["validUser"]).User;
+        e_user.Sesion = ((E_user)Session["validUser"]).User_name;
         e_user.Id_ruta = int.Parse(DDL_NumRuta.SelectedValue);
         e_user.Activo = CB_Activo.Checked;
         e_user.Id_rol = int.Parse(DDL_Rol.SelectedValue);
@@ -49,8 +49,8 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
 
         
 
-        Send_Mail mail = new Send_Mail();
-        mail.sendMail(e_user.Mail, e_user.Token, e_user.User, e_user.Pass);
+        //Send_Mail mail = new Send_Mail();
+        //mail.sendMail(e_user.Mail, e_user.Token, e_user.User_name, e_user.Pass);
 
         new DAO_Admin().addUser(e_user);
 

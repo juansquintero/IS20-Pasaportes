@@ -12,7 +12,7 @@ public class DAO_Login
     {
         using (var db = new Mapeo())
         {
-            return db.usuario.Where(x => x.User.Equals(user.User) && x.Pass.Equals(user.Pass)).FirstOrDefault();
+            return db.usuario.Where(x => x.User_name.Equals(user.User_name) && x.Pass.Equals(user.Pass)).FirstOrDefault();
         }
     }
 }

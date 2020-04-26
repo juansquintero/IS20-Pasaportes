@@ -27,19 +27,21 @@
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ODS_UsersMostrar" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="100%">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Id_rol" HeaderText="Identificacion de rol" SortExpression="Id_rol" />
-                                <asp:BoundField DataField="Name_rol" HeaderText="Rol" ReadOnly="True" SortExpression="Name_rol" />
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Name" HeaderText="Nombre" SortExpression="Name" />
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Last_name" HeaderText="Apellido" SortExpression="Last_name" />
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="User" HeaderText="Usuario" SortExpression="User" />
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Pass" HeaderText="Contraseña" SortExpression="Pass" />
+                                <asp:BoundField DataField="Id_rol" HeaderText="Identificacion Rol" SortExpression="Id_rol" />
+                                <asp:BoundField DataField="Name_rol" HeaderText="Rol" SortExpression="Name_rol" />
+                                <asp:BoundField DataField="Name" HeaderText="Nombre" SortExpression="Name" />
+                                <asp:BoundField DataField="Last_name" HeaderText="Apellido" SortExpression="Last_name" />
+                                <asp:BoundField DataField="User_name" HeaderText="Usuario" SortExpression="User_name" />
+                                <asp:BoundField DataField="Pass" HeaderText="Constraseña" SortExpression="Pass" />
+                                <asp:BoundField DataField="Pasaporte_numero" HeaderText="Pasaportes" SortExpression="Pasaporte_numero" />
                                 <asp:CheckBoxField DataField="Activo" HeaderText="Activo" SortExpression="Activo" />
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Id_driver" HeaderText="Identificacion de conductor" SortExpression="Id_driver" />
-                                <asp:BoundField DataField="Name_empresa" HeaderText="Empresa" ReadOnly="True" SortExpression="Name_empresa" />
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Id_ruta" HeaderText="Identificacion de ruta" SortExpression="Id_ruta" />
-                                <asp:BoundField ConvertEmptyStringToNull="False" DataField="Name_ruta" HeaderText="Ruta" ReadOnly="True" SortExpression="Name_ruta" />
+                                <asp:BoundField DataField="Id_ruta" HeaderText="Identificacion de ruta" SortExpression="Id_ruta" />
+                                <asp:BoundField DataField="Name_ruta" HeaderText="Ruta" SortExpression="Name_ruta" />
                                 <asp:BoundField DataField="Mail" HeaderText="Correo" SortExpression="Mail" />
-                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                                <asp:BoundField DataField="Id_driver" HeaderText="Idetificacion de conductor" SortExpression="Id_driver" />
+                                <asp:BoundField DataField="Name_empresa" HeaderText="Empresa" SortExpression="Name_empresa" />
+                                <asp:BoundField DataField="Driver_total_pasaporte" HeaderText="Pasaportes recibidos" SortExpression="Driver_total_pasaporte" />
+                                <asp:CommandField CancelText="Cancelar" DeleteText="Eliminar" EditText="Editar" ShowDeleteButton="True" ShowEditButton="True" UpdateText="Actualizar" />
                             </Columns>
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

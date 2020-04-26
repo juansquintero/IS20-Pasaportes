@@ -17,7 +17,7 @@ public class E_user
     private int? id_ruta;
     private string name;
     private string last_name;
-    private string user;
+    private string user_name;
     private string pass;
     private int? pasaporte_numero;
     private bool? activo;
@@ -27,8 +27,8 @@ public class E_user
     private string qr_hash;
     private string mail;
     private string token;
-    private DateTime? endToken;
-    private int stateId;
+    private DateTime? end_token;
+    private int? state_id;
    
     //FK
 
@@ -46,8 +46,8 @@ public class E_user
     public string Name { get => name; set => name = value; }
     [Column("last_name")]
     public string Last_name { get => last_name; set => last_name = value; }
-    [Column("user")]
-    public string User { get => user; set => user = value; }
+    [Column("user_name")]
+    public string User_name { get => user_name; set => user_name = value; }
     [Column("pass")]
     public string Pass { get => pass; set => pass = value; }
     [Column("pasaporte_numero")]
@@ -68,10 +68,10 @@ public class E_user
     public string Mail { get => mail; set => mail = value; }
     [Column("token")]
     public string Token { get => token; set => token = value; }
-    [Column("endToken")]
-    public DateTime? EndToken { get => endToken; set => endToken = value; }
-    [Column("stateId")]
-    public int StateId { get => stateId; set => stateId = value; }
+    [Column("end_token")]
+    public DateTime? EndToken { get => end_token; set => end_token = value; }
+    [Column("state_id")]
+    public int? State_Id { get => state_id; set => state_id = value; }
 
 
 

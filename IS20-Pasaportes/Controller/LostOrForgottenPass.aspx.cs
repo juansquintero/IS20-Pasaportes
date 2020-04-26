@@ -30,10 +30,10 @@ public partial class View_LostAndForgottenPass : System.Web.UI.Page
         E_user e_user = (E_user)Session["user_id"];
 
         e_user.Pass = Tb_Contraseña.Text;
-        e_user.StateId = 1;
+        e_user.State_Id = 1;
         e_user.Token = null;
         e_user.EndToken = null;
-        e_user.Sesion = e_user.User;
+        e_user.Sesion = e_user.User_name;
 
         new DAO_Admin().editUser(e_user);
         this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('Su Contraseña ha sido actualizada.');window.location=\"PrimerFormulario.aspx\"</script>");

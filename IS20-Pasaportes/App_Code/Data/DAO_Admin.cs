@@ -52,7 +52,7 @@ public class DAO_Admin
                         Name_rol = m.rol.Rol_name,
                         Name = m.uu.Name,
                         Last_name = m.uu.Last_name,
-                        User = m.uu.User,
+                        User_name = m.uu.User_name,
                         Pass = m.uu.Pass,
                         Pasaporte_numero = m.uu.Pasaporte_numero,
                         Activo = m.uu.Activo,
@@ -88,7 +88,7 @@ public class DAO_Admin
             E_user e_user2 = db.usuario.Where(x => x.Id == e_user.Id).First();
             e_user2.Name = e_user.Name;
             e_user2.Last_name = e_user.Last_name;
-            e_user2.User = e_user.User;
+            e_user2.User_name = e_user.User_name;
             e_user2.Pass = e_user.Pass;
             e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
             e_user2.Activo = e_user.Activo;
@@ -96,7 +96,7 @@ public class DAO_Admin
             e_user2.Mail = e_user.Mail;
             e_user2.LastModified = DateTime.Now;
             e_user2.Token = e_user.Token;
-            e_user2.StateId = e_user.StateId;
+            e_user2.State_Id = e_user.State_Id;
             e_user2.EndToken = e_user.EndToken;
             e_user2.Sesion = e_user.Sesion;
 

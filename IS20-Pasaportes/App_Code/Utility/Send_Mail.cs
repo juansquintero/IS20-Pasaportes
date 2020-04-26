@@ -18,17 +18,17 @@ public class Send_Mail
     {
         try
         {
-            var EmailTemplate = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Template\\mailer.html"));
-            var strBody = string.Format(EmailTemplate.ReadToEnd(), userToken);
-            EmailTemplate.Close(); EmailTemplate.Dispose(); EmailTemplate = null;
+            //var EmailTemplate = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Template\\mailer.html"));
+            //var strBody = string.Format(EmailTemplate.ReadToEnd(), userToken);
+            //EmailTemplate.Close(); EmailTemplate.Dispose(); EmailTemplate = null;
 
-            strBody = strBody.Replace("#TOKEN#", "A continuacion se le enviara su usuario y contraseña");
+            //strBody = strBody.Replace("#TOKEN#", "A continuacion se le enviara su usuario y contraseña");
             MailMessage mailM = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             mailM.From = new MailAddress("SABT_registro@sabt.com", "SABT");
             SmtpServer.Host = "smtp.gmail.com";
             mailM.Subject = "Registro usuario";
-            mailM.Body = strBody;
+            mailM.Body = "Hola";
             mailM.To.Add(destMail);
             mailM.IsBodyHtml = true;
             mailM.Priority = MailPriority.Normal;

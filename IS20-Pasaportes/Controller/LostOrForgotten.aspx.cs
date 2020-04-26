@@ -26,7 +26,7 @@ public partial class View_LostOrForgotten : System.Web.UI.Page
         }
 
         e_user.Pass = "";
-        e_user.StateId = 2;
+        e_user.State_Id = 2;
         e_user.Token = encrypt(JsonConvert.SerializeObject(e_user));
         e_user.EndToken = DateTime.Now.AddDays(1);
         e_user.Sesion = e_user.Sesion = "Sistema";
