@@ -28,4 +28,10 @@ public partial class View_User_UserInfo : System.Web.UI.Page
     {
         Response.Redirect("/View/UserHome.aspx");
     }
+
+    protected void BT_PassChange_Click(object sender, EventArgs e)
+    {
+        E_user e_user = new E_user();
+
+    }
 }

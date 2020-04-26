@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 
 public partial class View_Admin_AddUser : System.Web.UI.Page
 {
@@ -36,7 +37,20 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
         e_user.Id_rol = int.Parse(DDL_Rol.SelectedValue);
         e_user.Id_driver = int.Parse(DDL_IdeConductor.SelectedValue);
         e_user.LastModified = DateTime.Now;
-        e_user.Qr_hash = RNG_Gen.RNG_gen();
+
+        if (e_user.Id_rol == 2)
+        {
+            e_user.Qr_hash = RNG_Gen.RNG_gen();
+        }
+        else
+        {
+            e_user.Qr_hash = "";
+        }
+
+        
+
+        Send_Mail mail = new Send_Mail();
+        mail.sendMail(e_user.Mail, e_user.Token, e_user.User, e_user.Pass);
 
         new DAO_Admin().addUser(e_user);
 

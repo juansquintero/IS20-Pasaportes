@@ -14,7 +14,7 @@ public class Send_Mail
 
     }
 
-    public void sendMail(String destMail, String userToken, String mail)
+    public void sendMail(String destMail, String userToken, String pass, String user)
     {
         try
         {
@@ -25,7 +25,7 @@ public class Send_Mail
             strBody = strBody.Replace("#TOKEN#", "A continuacion se le enviara su usuario y contraseña");
             MailMessage mailM = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-            mailM.From = new MailAddress("prueba@mail.com", "prueba");
+            mailM.From = new MailAddress("SABT_registro@sabt.com", "SABT");
             SmtpServer.Host = "smtp.gmail.com";
             mailM.Subject = "Registro usuario";
             mailM.Body = strBody;
@@ -33,7 +33,7 @@ public class Send_Mail
             mailM.IsBodyHtml = true;
             mailM.Priority = MailPriority.Normal;
             SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("prueba@mail.com", "passPrueba");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("is20pasaportes@gmail.com", "is20_2020");
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mailM);
         }

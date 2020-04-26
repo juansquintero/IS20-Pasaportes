@@ -27,6 +27,8 @@ public class E_user
     private string qr_hash;
     private string mail;
     private string token;
+    private DateTime? endToken;
+    private int stateId;
    
     //FK
 
@@ -66,6 +68,10 @@ public class E_user
     public string Mail { get => mail; set => mail = value; }
     [Column("token")]
     public string Token { get => token; set => token = value; }
+    [Column("endToken")]
+    public DateTime? EndToken { get => endToken; set => endToken = value; }
+    [Column("stateId")]
+    public int StateId { get => stateId; set => stateId = value; }
 
 
 
@@ -79,4 +85,5 @@ public class E_user
     public string Name_rol { get => name_rol; set => name_rol = value; }
     [NotMapped]
     public string Name_ruta { get => name_ruta; set => name_ruta = value; }
+    
 }

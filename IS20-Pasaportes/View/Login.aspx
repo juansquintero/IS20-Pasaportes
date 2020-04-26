@@ -73,8 +73,9 @@
                                                             &nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <asp:CheckBox ID="RememberMe" runat="server" Text="Recuerdame para la proxima" />
+                                                        <td class="auto-style2">
+                                                            
+                                                            <asp:LinkButton ID="LB_Recuperar" runat="server" OnClick="LB_Recuperar_Click" PostBackUrl="~/View/LostOrForgotten.aspx">Recuperar contraseña</asp:LinkButton>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -84,8 +85,10 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="right">
-                                                            <asp:Button ID="LoginButton" runat="server" BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" Text="Entrar" ValidationGroup="LG_Proyecto" />
+                                                        <td align="center">
+                                                            <asp:TextBox ID="TB_Validate" runat="server" Visible="False"></asp:TextBox>
+                                                            <asp:Button ID="BT_Recuperar" runat="server" Text="Recuperar" BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" OnClick="BT_Recuperar_Click" Visible="False"/>
+                                                            <asp:Button ID="LoginButton" runat="server" BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" Text="Entrar" ValidationGroup="LG_Proyecto" OnClick="LoginButton_Click" />
                                                         </td>
                                                     </tr>
                                                 </table>

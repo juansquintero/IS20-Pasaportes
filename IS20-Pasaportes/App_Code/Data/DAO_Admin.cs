@@ -95,6 +95,10 @@ public class DAO_Admin
             e_user2.Id_driver = e_user.Id_driver;
             e_user2.Mail = e_user.Mail;
             e_user2.LastModified = DateTime.Now;
+            e_user2.Token = e_user.Token;
+            e_user2.StateId = e_user.StateId;
+            e_user2.EndToken = e_user.EndToken;
+            e_user2.Sesion = e_user.Sesion;
 
             db.usuario.Attach(e_user2);
             var entry = db.Entry(e_user2);
@@ -107,6 +111,22 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return db.usuario.Where(x => x.Qr_hash.Equals(qr)).FirstOrDefault();
+        }
+    }
+
+    public E_user getMailUser(string mail)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Mail.Equals(mail)).FirstOrDefault();
+        }
+    }
+
+    public E_user getTokenUser(string token)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Token.Equals(token)).FirstOrDefault();
         }
     }
 }

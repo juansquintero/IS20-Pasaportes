@@ -52,7 +52,9 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="BT_PassChange" runat="server" OnClick="BT_PassChange_Click" Text="Cambiar contraseña" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
