@@ -35,8 +35,8 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         e_user.Activo = CB_Activo.Checked;
 
     //---------------------------------//
-        E_user euser = new DAO_Admin().getUserLogin(TB_User.Text);
 
+        E_user euser = new DAO_Admin().getUserLogin(TB_User.Text);
         try
         {
             if (euser.User_name == TB_User.Text)
@@ -51,7 +51,6 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         }
         
         E_user euser_mail = new DAO_Admin().getMailUser(TB_Correo.Text);
-
         try { 
             if (euser_mail.Mail == TB_Correo.Text)
             {
@@ -64,16 +63,21 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         }
 
         //---------------------------------//
+
         e_user.LastModified = DateTime.Now;
-        e_user.Sesion = ((E_user)Session["validUser"]).User_name;  
+        e_user.Sesion = ((E_user)Session["validUser"]).User_name;
+        
         //---------------------------------//
+        //Generador de usuario ahora en User/QRCode.aspx.cs
         e_user.Qr_hash = RNG_Gen.RNG_gen();
   
         Send_Mail mail = new Send_Mail();
         mail.sendMail(e_user.Mail, e_user.Token, e_user.User_name, e_user.Pass);
         new DAO_Admin().addUser(e_user);
         cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario ha sido registrado');</script>");
+
         //-------------------------------//
+
         TB_Pass.Text = String.Empty;
         TB_Nombre.Text = String.Empty;
         TB_Correo.Text = String.Empty;
