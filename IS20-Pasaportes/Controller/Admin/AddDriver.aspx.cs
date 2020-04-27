@@ -4,9 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Newtonsoft.Json;
 
-public partial class View_Admin_AddUser : System.Web.UI.Page
+public partial class View_Admin_AddDriver : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -23,13 +22,16 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
     protected void BT_Enviar_Click(object sender, EventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;
+
         E_user e_user = new E_user();
+        e_user.Id_rol = 3;
         e_user.Name = TB_Nombre.Text;
         e_user.Last_name = TB_Apellido.Text;
         e_user.User_name = TB_User.Text;
         e_user.Pass = TB_Pass.Text;
         e_user.Mail = TB_Correo.Text;
-        e_user.Id_rol = 1;
+        e_user.Id_ruta = int.Parse(DDL_NumRuta.SelectedValue);       
+        e_user.Id_driver = int.Parse(DDL_IdeConductor.SelectedValue);
 
         //---------------------------------//
 
@@ -50,7 +52,6 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
         TB_Correo.Text = String.Empty;
         TB_Apellido.Text = String.Empty;
         TB_User.Text = String.Empty;
-
     }
 
     protected void BT_Salir_Click(object sender, EventArgs e)

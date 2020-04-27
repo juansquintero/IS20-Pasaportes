@@ -129,4 +129,12 @@ public class DAO_Admin
             return db.usuario.Where(x => x.Token.Equals(token)).FirstOrDefault();
         }
     }
+
+    public E_user getUserLogin(string user)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.User_name.Equals(user)).FirstOrDefault();
+        }
+    }
 }

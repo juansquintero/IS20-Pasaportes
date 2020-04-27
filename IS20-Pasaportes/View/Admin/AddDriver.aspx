@@ -1,6 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Admin/AddUser.aspx.cs" Inherits="View_Admin_AddUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Admin/AddDriver.aspx.cs" Inherits="View_Admin_AddDriver" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+    protected void BT_Enviar_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void BT_Salir_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -50,7 +63,21 @@
                     <td class="auto-style2">
                         <strong>Rol:</strong></td>
                     <td class="auto-style3">
-                        Administrador</td>
+                        Conductor</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <p>
+                            <strong>
+                        <asp:Label ID="Label3" runat="server" Text="Ruta"></asp:Label>
+                            :</strong></p>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:DropDownList ID="DDL_NumRuta" runat="server" DataSourceID="ODS_Ruta" DataTextField="Ruta" DataValueField="Id">
+                        </asp:DropDownList>
+                        <asp:ObjectDataSource ID="ODS_Ruta" runat="server" SelectMethod="getRuta" TypeName="DAO_Admin"></asp:ObjectDataSource>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -105,6 +132,18 @@
                 <tr>
                     <td class="auto-style4">
                         <strong>
+                        <asp:Label ID="Label11" runat="server" Text="Identificacion de conductor"></asp:Label>
+                        :</strong></td>
+                    <td class="auto-style5">
+                        <asp:DropDownList ID="DDL_IdeConductor" runat="server" DataSourceID="OBS_Conductor" DataTextField="Empresa" DataValueField="Id">
+                        </asp:DropDownList>
+                        <asp:ObjectDataSource ID="OBS_Conductor" runat="server" SelectMethod="getDriver" TypeName="DAO_Admin"></asp:ObjectDataSource>
+                    </td>
+                    <td class="auto-style6">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        <strong>
                         <asp:Label ID="Label12" runat="server" Text="Correo"></asp:Label>
                         :</strong></td>
                     <td class="auto-style5">
@@ -113,13 +152,6 @@
 
                         <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TB_Correo" ErrorMessage="Formato de correo invalido"></asp:RegularExpressionValidator>
                     </td>
-                    <td class="auto-style6">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style4">
-                        &nbsp;</td>
-                    <td class="auto-style5">
-                        &nbsp;</td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
                 <tr>
@@ -155,3 +187,4 @@
     </form>
 </body>
 </html>
+

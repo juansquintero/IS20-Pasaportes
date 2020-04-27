@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Admin/AddUser.aspx.cs" Inherits="View_Admin_AddUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Admin/AddBenef.aspx.cs" Inherits="View_Admin_AddBenef" %>
 
 <!DOCTYPE html>
 
@@ -30,7 +30,27 @@
             font-weight: normal;
             font-size: xx-large;
         }
-    </style>
+                .alertBox
+            {
+                position: absolute;
+                top: 100px;
+                left: 50%;
+                width: 500px;
+                margin-left: -250px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                padding: 4px 8px;
+            }
+        </style>
+        <script type="text/javascript">
+            function closeAlert(e)
+            {
+                e.preventDefault();
+                this.parentNode.style.display = "none";
+            }
+        </script>    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -50,7 +70,21 @@
                     <td class="auto-style2">
                         <strong>Rol:</strong></td>
                     <td class="auto-style3">
-                        Administrador</td>
+                        Beneficiario</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <p>
+                            <strong>
+                        <asp:Label ID="Label3" runat="server" Text="Ruta"></asp:Label>
+                            :</strong></p>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:DropDownList ID="DDL_NumRuta" runat="server" DataSourceID="ODS_Ruta" DataTextField="Ruta" DataValueField="Id">
+                        </asp:DropDownList>
+                        <asp:ObjectDataSource ID="ODS_Ruta" runat="server" SelectMethod="getRuta" TypeName="DAO_Admin"></asp:ObjectDataSource>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -85,6 +119,7 @@
                         :</strong></td>
                     <td class="auto-style5">
                         <asp:TextBox ID="TB_User" runat="server"></asp:TextBox>
+                        <asp:Label ID="LB_ErrorUser" runat="server" ForeColor="#FF3300"></asp:Label>
                         <asp:RequiredFieldValidator runat="server" id="RFV3" controltovalidate="TB_User" errormessage="!Este campo es obligatorio!" />
 
                     </td>
@@ -105,21 +140,25 @@
                 <tr>
                     <td class="auto-style4">
                         <strong>
-                        <asp:Label ID="Label12" runat="server" Text="Correo"></asp:Label>
+                        <asp:Label ID="Label9" runat="server" Text="Activo"></asp:Label>
                         :</strong></td>
                     <td class="auto-style5">
-                        <asp:TextBox ID="TB_Correo" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator1" controltovalidate="TB_Correo" errormessage="!Este campo es obligatorio!" />
-
-                        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TB_Correo" ErrorMessage="Formato de correo invalido"></asp:RegularExpressionValidator>
+                        <asp:CheckBox ID="CB_Activo" runat="server" />
                     </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        &nbsp;</td>
+                        <strong>
+                        <asp:Label ID="Label12" runat="server" Text="Correo"></asp:Label>
+                        :</strong></td>
                     <td class="auto-style5">
-                        &nbsp;</td>
+                        <asp:TextBox ID="TB_Correo" runat="server"></asp:TextBox>
+                        <asp:Label ID="LB_ErrorCorreo" runat="server" ForeColor="#FF3300"></asp:Label>
+                        <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator1" controltovalidate="TB_Correo" errormessage="!Este campo es obligatorio!" />
+
+                        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TB_Correo" ErrorMessage="Formato de correo invalido"></asp:RegularExpressionValidator>
+                    </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
                 <tr>
@@ -151,7 +190,8 @@
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
             </table>
-        </div>
+        </div>       
     </form>
 </body>
 </html>
+
