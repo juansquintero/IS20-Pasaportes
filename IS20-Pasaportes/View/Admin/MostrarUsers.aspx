@@ -24,7 +24,7 @@
                 <tr>
                     <td>
                         <asp:ObjectDataSource ID="ODS_UsersMostrar" runat="server" SelectMethod="getUserBeneficiario" TypeName="DAO_Admin" DataObjectTypeName="E_user" DeleteMethod="deleteUser" InsertMethod="addUser" OnSelecting="ODS_UsersMostrar_Selecting" UpdateMethod="editUser"></asp:ObjectDataSource>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ODS_UsersMostrar" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="100%">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ODS_UsersMostrar" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="100%" AllowPaging="True">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="Id_rol" HeaderText="Identificacion Rol" SortExpression="Id_rol" />
@@ -41,7 +41,8 @@
                                 <asp:BoundField DataField="Id_driver" HeaderText="Idetificacion de conductor" SortExpression="Id_driver" />
                                 <asp:BoundField DataField="Name_empresa" HeaderText="Empresa" SortExpression="Name_empresa" />
                                 <asp:BoundField DataField="Driver_total_pasaporte" HeaderText="Pasaportes recibidos" SortExpression="Driver_total_pasaporte" />
-                                <asp:CommandField CancelText="Cancelar" DeleteText="Eliminar" EditText="Editar" ShowDeleteButton="True" ShowEditButton="True" UpdateText="Actualizar" />
+                                <asp:CommandField EditText="Editar" HeaderText="Editar" ShowEditButton="True" />
+                                <asp:CommandField HeaderText="Borrar" ShowDeleteButton="True" />
                             </Columns>
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

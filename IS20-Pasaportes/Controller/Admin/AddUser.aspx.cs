@@ -56,11 +56,12 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
 
         cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario ha sido registrado');</script>");
 
-        //TB_User.Text = String.Empty;
-        //TB_Pass.Text = String.Empty;
-        //TB_Nombre.Text = String.Empty;
-        //TB_Correo.Text = String.Empty;
-        //TB_Apellido.Text = String.Empty;
+
+        TB_Pass.Text = String.Empty;
+        TB_Nombre.Text = String.Empty;
+        TB_Correo.Text = String.Empty;
+        TB_Apellido.Text = String.Empty;
+        TB_User.Text = String.Empty;
     }
 
     protected void BT_Salir_Click(object sender, EventArgs e)
