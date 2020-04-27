@@ -133,6 +133,8 @@
                     <td class="auto-style5">
                         <asp:TextBox ID="TB_Pass" runat="server" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" id="RFV4" controltovalidate="TB_Pass" errormessage="!Este campo es obligatorio!" />
+                        <asp:CompareValidator ID="cv" runat="server" ControlToValidate="TB_Pass" Type="Integer"
+                        Operator="DataTypeCheck" ErrorMessage="!Solo se admiten numeros!" />
 
                     </td>
                     <td class="auto-style6">&nbsp;</td>

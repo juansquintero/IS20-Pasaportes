@@ -33,6 +33,36 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
 
         //---------------------------------//
 
+        E_user euser = new DAO_Admin().getUserLogin(TB_User.Text);
+        try
+        {
+            if (euser.User_name == TB_User.Text)
+            {
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario ya existe');</script>");
+                return;
+            }
+        }
+        catch (NullReferenceException)
+        {
+
+        }
+
+        E_user euser_mail = new DAO_Admin().getMailUser(TB_Correo.Text);
+        try
+        {
+            if (euser_mail.Mail == TB_Correo.Text)
+            {
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El correo ya existe');</script>");
+                return;
+            }
+        }
+        catch (NullReferenceException)
+        {
+
+        }
+
+        //---------------------------------//
+
         e_user.LastModified = DateTime.Now;
         e_user.Sesion = ((E_user)Session["validUser"]).User_name;
 
