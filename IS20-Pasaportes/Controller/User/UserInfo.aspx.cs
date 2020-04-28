@@ -22,6 +22,7 @@ public partial class View_User_UserInfo : System.Web.UI.Page
         LB_Nombre.Text = ((E_user)Session["validUser"]).Name;
         LB_Apellido.Text = ((E_user)Session["validUser"]).Last_name; 
         LB_PasDisponibles.Text = ((E_user)Session["validUser"]).Pasaporte_numero.ToString(); 
+
     }
 
     protected void BT_Salir_Click(object sender, EventArgs e)
@@ -31,7 +32,7 @@ public partial class View_User_UserInfo : System.Web.UI.Page
 
     protected void BT_PassChange_Click(object sender, EventArgs e)
     {
-        E_user e_user = new E_user();
+        Response.Redirect("UserChangePass.aspx");
 
     }
 }

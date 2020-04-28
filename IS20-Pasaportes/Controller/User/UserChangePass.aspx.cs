@@ -21,15 +21,18 @@ public partial class View_User_UserChangePass : System.Web.UI.Page
 
     protected void B_Cambiar_Click(object sender, EventArgs e)
     {
-        E_user e_user = new E_user();
-        if (TB_Pass == TB_Repeat)
+        ClientScriptManager cm = this.ClientScript;
+        E_user e_user = new DAO_Admin().getUserLogin(((E_user)Session["validUser"]).User_name);
+        if (TB_Pass.Text == TB_Repeat.Text)
         {
             e_user.Pass = TB_Pass.Text;
             new DAO_Admin().editUser(e_user);
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su contraseña ha sido cambiada con exito');</script>");
+            TB_Pass.Text = String.Empty;
+            TB_Repeat.Text = String.Empty;
         }
         else
-        {
-            ClientScriptManager cm = this.ClientScript;
+        {            
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Las contraseñas no coinciden');</script>");
             return;
         }                 
