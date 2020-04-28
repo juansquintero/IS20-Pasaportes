@@ -10,14 +10,14 @@
             font-family: Arial;
             font-size: 10pt;
         }
-        .auto-style1 {
-            width: 320px;
+        .auto-style8 {
+            height: 37px;
         }
-        .auto-style2 {
-            width: 320px;
-            text-decoration: underline;
+        .auto-style9 {
+            width: 478px;
+            height: 37px;
         }
-        .auto-style3 {
+        .auto-style11 {
             width: 100%;
         }
     </style>
@@ -29,8 +29,8 @@
 var pageUrl = '<%=ResolveUrl("~/View/Driver/CS.aspx") %>';
 $(function () {
     jQuery("#webcam").webcam({
-        width: 320,
-        height: 240,
+        width: 400,
+        height: 280,
         mode: "save",
         swffile: '<%=ResolveUrl("~/Webcam_Plugin/jscam.swf") %>',
         debug: function (type, status) {
@@ -53,66 +53,75 @@ $(function () {
             });
         },
         onCapture: function () {
-            webcam.save(pageUrl);
+            webcam.save(pageUrl);            
         }
     });
 });
 function Capture() {
     webcam.capture();
+    alert("Presione escanear");
     return false;
 }
 </script>
 <form id="form1" runat="server">
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" class="auto-style11">
     <tr>
-        <td align="center">
+        <td align="center" class="auto-style8">
             <u><h1>Camara</h1></u>
         </td>
-        <td>
+        <td class="auto-style8">
         </td>
-        <td align="center" class="auto-style1">
-            <u><h1>Codigo QR</h1></u>
+        <td align="center" class="auto-style9">
+            <u><h1>Usuario</h1></u>
         </td>
-        <td align="center" class="auto-style2">
-            <h1><strong>Informacion</strong></h1>
-        </td>
-    </tr>
+        
     <tr>
         <td>
-            <div id="webcam">
+            <div align="center" id="webcam">
             </div>
         </td>
         <td>
             &nbsp;
         </td>
-        <td class="auto-style1">
-            <asp:Image ID="imgCapture" runat="server" Style="visibility: hidden; width: 320px;
-                height: 240px" />
-        </td>
-        <td class="auto-style1">
-            <table class="auto-style3">
+        <td>
+            <br />
+            <table class="auto-style11">
                 <tr>
                     <td><strong>Nombre:</strong></td>
-                    <td>&nbsp;</td>
+                    <td><asp:Label ID="LB_Name" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td><strong>Apellido:</strong></td>
-                    <td>&nbsp;</td>
+                    <td><asp:Label ID="LB_LastName" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Codigo:</strong></td>
+                    <td><asp:Label ID="LB_Code" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td><strong>Pasaportes:</strong></td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Label ID="LB_Bonos" runat="server"></asp:Label>
+                    </td>
                 </tr>
             </table>
-            <br />
-            <strong>Usuario:</strong>
-            <asp:Label ID="LB_QRCode" runat="server"></asp:Label>
         </td>
     </tr>
 </table>
 <br />
-<asp:Button ID="btnCapture" Text="Capturar" runat="server" OnClientClick="return Capture();" />
+    <table class="auto-style11">
+        <tr>
+            <td align="center">
+<asp:Button ID="btnCapture" Text="Capturar" runat="server" OnClientClick="return Capture();" OnClick="BT_Escanear_Click" />
     <asp:Button ID="BT_Escanear" runat="server" OnClick="BT_Escanear_Click" Text="Escanear" />
+    <asp:Button ID="BT_Salir" runat="server" OnClick="BT_Salir_Click" Text="Salir" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
 <br />
 <span id="camStatus"></span>
 </form>

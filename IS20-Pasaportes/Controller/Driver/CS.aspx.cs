@@ -41,6 +41,7 @@ public partial class _Default : System.Web.UI.Page
     }
 
     [WebMethod(EnableSession = true)]
+
     public static string GetCapturedImage()
     {
         string url = HttpContext.Current.Session["CapturedImage"].ToString();
@@ -51,21 +52,34 @@ public partial class _Default : System.Web.UI.Page
     protected void BT_Escanear_Click(object sender, EventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;
-        //Aplicar un path virtual no fisico
         string[] data = BarcodeReader.read(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Captures/qr_code.png"), BarcodeReader.QRCODE);
         string result = String.Concat(data);
-
+        E_user e_User = new DAO_Admin().getQrUser(result);
         if (result == null || result == "") 
         {
-            LB_QRCode.Text = "No existe o el codigo no funciona";
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario no existe o el codigo no funciona');</script>");
             return;
         }
-        else
+        else if (e_User == null)
         {
-            LB_QRCode.Text = result;
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario no existe');</script>");
+            return;
         }
-        //Mirar se se puede con un path virtual no fisico
+        else
+        {            
+            LB_Name.Text = e_User.Name;
+            LB_LastName.Text = e_User.Last_name;
+            LB_Code.Text = result;
+            LB_Bonos.Text = e_User.Pasaporte_numero.ToString();
+            e_User.Pasaporte_numero = e_User.Pasaporte_numero - 1;
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El pasaporte se ha cobrado');</script>");
+            new DAO_Admin().editUser(e_User);
+        }
         File.Delete(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Captures/qr_code.png"));
+    }
+
+    protected void BT_Salir_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/View/DriverHome.aspx");
     }
 }

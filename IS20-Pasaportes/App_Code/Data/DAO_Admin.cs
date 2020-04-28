@@ -40,7 +40,7 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return (from uu in db.usuario
-                    join rol in db.rol on uu.Id_rol equals rol.Id
+                    join rol in db.rol on uu.Id_rol equals 2
 
                     select new
                     {
@@ -55,8 +55,65 @@ public class DAO_Admin
                         User_name = m.uu.User_name,
                         Pass = m.uu.Pass,
                         Pasaporte_numero = m.uu.Pasaporte_numero,
+                        Id_ruta = m.uu.Id_ruta,
+                        Mail = m.uu.Mail,
+                        Name_ruta = m.uu.Name_ruta,
                         Activo = m.uu.Activo,
-                        Qr_hash = m.uu.Qr_hash
+                        Id_rol = m.uu.Id_rol
+                    }).ToList();
+        }
+    }
+
+    public List<E_user> getUserDriver()
+    {
+        using (var db = new Mapeo())
+        {
+            return (from uu in db.usuario
+                    join rol in db.rol on uu.Id_rol equals 3
+
+                    select new
+                    {
+                        uu,
+                        rol
+                    }).ToList().Select(m => new E_user
+                    {
+                        Id = m.uu.Id,
+                        Name_rol = m.rol.Rol_name,
+                        Name = m.uu.Name,
+                        Last_name = m.uu.Last_name,
+                        User_name = m.uu.User_name,
+                        Pass = m.uu.Pass,
+                        Driver_total_pasaporte = m.uu.Driver_total_pasaporte,
+                        Id_ruta = m.uu.Id_ruta,
+                        Name_ruta = m.uu.Name_ruta,
+                        Id_driver = m.uu.Id_driver,
+                        Mail = m.uu.Mail,
+                        Id_rol = m.uu.Id_rol
+                    }).ToList();
+        }
+    }
+
+    public List<E_user> getUserAdmin()
+    {
+        using (var db = new Mapeo())
+        {
+            return (from uu in db.usuario
+                    join rol in db.rol on uu.Id_rol equals 1
+
+                    select new
+                    {
+                        uu,
+                        rol
+                    }).ToList().Select(m => new E_user
+                    {
+                        Id = m.uu.Id,
+                        Name_rol = m.rol.Rol_name,
+                        Name = m.uu.Name,
+                        Last_name = m.uu.Last_name,
+                        User_name = m.uu.User_name,
+                        Pass = m.uu.Pass,
+                        Mail = m.uu.Mail,
+                        Id_rol = m.uu.Id_rol                        
                     }).ToList();
         }
     }
@@ -70,12 +127,12 @@ public class DAO_Admin
         }
     }
 
-    public void deleteUser(E_user user)
+    public void deleteUser(E_user e_user)
     {
         using (var db = new Mapeo())
         {
-            db.usuario.Attach(user);
-            var entry = db.Entry(user);
+            db.usuario.Attach(e_user);
+            var entry = db.Entry(e_user);
             entry.State = EntityState.Deleted;
             db.SaveChanges();
         }
@@ -102,6 +159,7 @@ public class DAO_Admin
 
             db.usuario.Attach(e_user2);
             var entry = db.Entry(e_user2);
+            entry.State = EntityState.Modified;
             db.SaveChanges();
         }
     }

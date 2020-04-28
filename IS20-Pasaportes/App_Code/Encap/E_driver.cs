@@ -13,7 +13,7 @@ public class E_driver
 {
     private int id;
     private string empresa;
-    private int? total_pasaporte;
+    private int? total_pasaporte;   
 
     [Key]
     [Column("id")]
@@ -22,5 +22,4 @@ public class E_driver
     public string Empresa { get => empresa; set => empresa = value; }
     [Column("total_pasaporte")]
     public int? Total_pasaporte { get => total_pasaporte; set => total_pasaporte = value; }
-
 }
