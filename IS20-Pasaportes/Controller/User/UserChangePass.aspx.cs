@@ -28,6 +28,8 @@ public partial class View_User_UserChangePass : System.Web.UI.Page
             e_user.Pass = TB_Pass.Text;
             new DAO_Admin().editUser(e_user);
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su contraseña ha sido cambiada con exito');</script>");
+            Send_Mail mail = new Send_Mail();
+            mail.sendMail(e_user.Mail, "", e_user.User_name, e_user.Pass, "Su contraseña se ha actualizado");
             TB_Pass.Text = String.Empty;
             TB_Repeat.Text = String.Empty;
         }

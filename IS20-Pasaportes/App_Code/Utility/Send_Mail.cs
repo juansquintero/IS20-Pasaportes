@@ -14,7 +14,7 @@ public class Send_Mail
 
     }
 
-    public void sendMail(String destMail, String userToken, String pass, String user)
+    public void sendMail(String destMail, String userToken, String pass, String user, String extra)
     {
         try
         {
@@ -22,7 +22,7 @@ public class Send_Mail
             var strBody = string.Format(EmailTemplate.ReadToEnd(), userToken);
             EmailTemplate.Close(); EmailTemplate.Dispose(); EmailTemplate = null;
 
-            strBody = strBody.Replace("#TOKEN#", "Su usuario es: " + user + " Su contraseña es: " + pass + userToken);
+            strBody = strBody.Replace("#TOKEN#", "Su usuario es: " + user + " Su contraseña es: " + pass + userToken + extra);
             MailMessage mailM = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             mailM.From = new MailAddress("SABT_registro@sabt.com", "SABT");
