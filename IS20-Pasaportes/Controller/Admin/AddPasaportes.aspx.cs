@@ -16,4 +16,9 @@ public partial class View_Admin_AddPasaportes : System.Web.UI.Page
     {
         Response.Redirect("/View/Admin/typeUserAdd.aspx");
     }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -164,6 +164,20 @@ public class DAO_Admin
         }
     }
 
+    public void editPasaportes(E_user e_user)
+    {
+        using (var db = new Mapeo())
+        {
+            E_user e_user2 = db.usuario.Where(x => x.Id == e_user.Id).First();            
+            e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
+
+            db.usuario.Attach(e_user2);
+            var entry = db.Entry(e_user2);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
+
     public E_user getQrUser(string qr)
     {
         using (var db = new Mapeo())

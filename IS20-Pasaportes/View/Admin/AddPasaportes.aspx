@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="OBS_Pasaportes" ForeColor="#333333" GridLines="None" Width="100%">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="OBS_Pasaportes" ForeColor="#333333" GridLines="None" Width="100%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="Id" HeaderText="ID" ReadOnly="True" SortExpression="Id" />
@@ -48,7 +48,7 @@
                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
-                        <asp:ObjectDataSource ID="OBS_Pasaportes" runat="server" DataObjectTypeName="E_user" SelectMethod="getUserBeneficiario" TypeName="DAO_Admin" UpdateMethod="editUser"></asp:ObjectDataSource>
+                        <asp:ObjectDataSource ID="OBS_Pasaportes" runat="server" DataObjectTypeName="E_user" SelectMethod="getUserBeneficiario" TypeName="DAO_Admin" UpdateMethod="editPasaportes"></asp:ObjectDataSource>
                     </td>
                 </tr>
                 <tr>
