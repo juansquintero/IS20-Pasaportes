@@ -31,7 +31,7 @@ public partial class View_LostOrForgotten : System.Web.UI.Page
         e_user.EndToken = DateTime.Now.AddDays(1);
         e_user.Sesion = e_user.Sesion = "Sistema";
 
-        new Send_Mail().sendMail(e_user.Mail, e_user.Token, "", "");
+        new Send_Mail().sendMail(e_user.Mail, e_user.Token, "", "", "");
         new DAO_Admin().editUser(e_user);
     }
 
