@@ -127,6 +127,15 @@ public class DAO_Admin
         }
     }
 
+    public void addRuta(E_ruta _Ruta)
+    {
+        using (var db = new Mapeo())
+        {
+            db.ruta.Add(_Ruta);
+            db.SaveChanges();
+        }
+    }
+
     public void deleteUser(E_user e_user)
     {
         using (var db = new Mapeo())
@@ -178,6 +187,30 @@ public class DAO_Admin
         }
     }
 
+    public void editRutas(E_ruta e_ruta)
+    {
+        using (var db = new Mapeo())
+        {
+            E_ruta e_Ruta = db.ruta.Where(x => x.Id == e_ruta.Id).First();
+            e_Ruta.Ruta = e_ruta.Ruta;
+            db.ruta.Attach(e_Ruta);
+            var entry = db.Entry(e_Ruta);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
+
+    public void deleteRuta(E_user e_ruta)
+    {
+        using (var db = new Mapeo())
+        {
+            db.usuario.Attach(e_ruta);
+            var entry = db.Entry(e_ruta);
+            entry.State = EntityState.Deleted;
+            db.SaveChanges();
+        }
+    }
+
     public E_user getQrUser(string qr)
     {
         using (var db = new Mapeo())
@@ -207,6 +240,14 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return db.usuario.Where(x => x.User_name.Equals(user)).FirstOrDefault();
+        }
+    }
+
+    public E_ruta getRuta(string ruta)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.ruta.Where(x => x.Ruta.Equals(ruta)).FirstOrDefault();
         }
     }
 }
