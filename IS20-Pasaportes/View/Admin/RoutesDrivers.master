@@ -23,7 +23,7 @@
     <ul>  
         <li><a href="AddRoute.aspx">Añadir rutas</a></li>  
         <li><a href="MostrarRoute.aspx">Modificar rutas</a></li>  
-        <li><a href="AddUser.aspx">Añadir o modificar empresa</a></li>  
+        <li><a href="MostrarAddEmpresa.aspx">Añadir o modificar empresa</a></li>  
         <li><a href="../AdminHome.aspx">Salir</a></li>    
     </ul>  
 </nav>  
