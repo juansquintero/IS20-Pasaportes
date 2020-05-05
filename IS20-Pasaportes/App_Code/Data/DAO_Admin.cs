@@ -200,11 +200,11 @@ public class DAO_Admin
         }
     }
 
-    public void deleteRuta(E_user e_ruta)
+    public void deleteRuta(E_ruta e_ruta)
     {
         using (var db = new Mapeo())
         {
-            db.usuario.Attach(e_ruta);
+            db.ruta.Attach(e_ruta);
             var entry = db.Entry(e_ruta);
             entry.State = EntityState.Deleted;
             db.SaveChanges();
@@ -247,7 +247,57 @@ public class DAO_Admin
     {
         using (var db = new Mapeo())
         {
-            return db.ruta.Where(x => x.Ruta.Equals(ruta)).FirstOrDefault();
+            return db.ruta.Where(x => x.Ruta.Equals(ruta)).FirstOrDefault();        
         }
     }
+
+    public E_driver getEmpresa(string empresa)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.driver.Where(x => x.Empresa.Equals(empresa)).FirstOrDefault();
+        }
+    }
+
+    public List<E_driver> getEmpresaList()
+    {
+        using (var db = new Mapeo())
+        {
+            return db.driver.ToList();
+        }
+    }
+
+    public void addEmpresa(E_driver empresa)
+    {
+        using (var db = new Mapeo())
+        {
+            db.driver.Add(empresa);
+            db.SaveChanges();
+        }
+    }
+
+    public void editEmpresa(E_driver _driver)
+    {
+        using (var db = new Mapeo())
+        {
+            E_driver e_Driver = db.driver.Where(x => x.Id == _driver.Id).First();
+            e_Driver.Empresa = _driver.Empresa;
+            db.driver.Attach(e_Driver);
+            var entry = db.Entry(e_Driver);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
+
+    public void deleteEmpresa(E_driver e_Driver)
+    {
+        using (var db = new Mapeo())
+        {
+            db.driver.Attach(e_Driver);
+            var entry = db.Entry(e_Driver);
+            entry.State = EntityState.Deleted;
+            db.SaveChanges();
+        }
+    }
+
 }
