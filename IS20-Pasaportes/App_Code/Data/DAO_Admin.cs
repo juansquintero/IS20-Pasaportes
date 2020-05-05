@@ -40,7 +40,8 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return (from uu in db.usuario
-                    join rol in db.rol on uu.Id_rol equals 2
+                    join rol in db.rol on uu.Id_rol equals rol.Id
+                    where rol.Id == 2
 
                     select new
                     {
@@ -69,7 +70,8 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return (from uu in db.usuario
-                    join rol in db.rol on uu.Id_rol equals 3
+                    join rol in db.rol on uu.Id_rol equals rol.Id
+                    where rol.Id == 3
 
                     select new
                     {
@@ -98,7 +100,8 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return (from uu in db.usuario
-                    join rol in db.rol on uu.Id_rol equals 1
+                    join rol in db.rol on uu.Id_rol equals rol.Id
+                    where rol.Id == 1
 
                     select new
                     {
