@@ -380,4 +380,12 @@ public class DAO_Admin
             db.SaveChanges();
         }
     }
+
+    public E_reunion getDateActa(int acta)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.reunion.Where(x => x.Id.Equals(acta)).FirstOrDefault();
+        }
+    }
 }

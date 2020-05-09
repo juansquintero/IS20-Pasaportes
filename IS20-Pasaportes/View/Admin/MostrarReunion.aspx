@@ -50,6 +50,49 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td align="center">
+                        &nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td align="center">
+                        &nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td align="center">
+                        <h3>Por favor incluya el acta de la reunion correspondiente</h3>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td align="center">
+                        <strong>Fecha:</strong>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="OBS_Reunion" DataTextField="Fecha" DataValueField="Id" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                        </asp:DropDownList>
+&nbsp; <strong>Acta: <asp:FileUpload ID="FileUpload1" runat="server" />
+                        </strong>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td align="center">
+                        &nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td align="center">
+                        &nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td align="center">
+                        <asp:Button ID="BT_Enviar" runat="server" OnClick="BT_Enviar_Click" Text="Guardar" ToolTip="Guardar cambios " />
                         <asp:Button ID="BT_Salir" runat="server" Text="Salir" OnClick="BT_Salir_Click" />
                     </td>
                     <td>&nbsp;</td>
