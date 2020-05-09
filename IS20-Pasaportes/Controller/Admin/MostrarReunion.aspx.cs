@@ -57,8 +57,6 @@ public partial class View_Admin_MostrarReunion : System.Web.UI.Page
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error: ');</script>");
             return;
         }
-
-        //DateTime dateex = DateTime.ParseExact(DropDownList1.SelectedValue, "MM-dd-yyyy hh:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture);
         
         E_reunion ren = new DAO_Admin().getDateActa(int.Parse(DropDownList1.SelectedValue));    
         ren.Acta = saveLocation;

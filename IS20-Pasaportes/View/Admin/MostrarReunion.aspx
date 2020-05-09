@@ -62,7 +62,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td align="center">
-                        <h3>Por favor incluya el acta de la reunion correspondiente</h3>
+                        <h3>Por favor incluya el acta de la reunion correspondiente en formato PDF</h3>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
