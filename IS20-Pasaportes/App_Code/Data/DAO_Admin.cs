@@ -338,4 +338,46 @@ public class DAO_Admin
             db.SaveChanges();
         }
     }
+
+    public List<E_reunion> getReunionList()
+    {
+        using (var db = new Mapeo())
+        {
+            return (from uu in db.reunion
+                    
+                    select new
+                    {
+                        uu
+                    }).ToList().Select(m => new E_reunion
+                    {
+                        Id = m.uu.Id,
+                        Fecha= m.uu.Fecha,
+                        Acta = m.uu.Acta                        
+                    }).ToList();
+        }
+    }
+
+    public void deleteReunion(E_reunion e_Reunion)
+    {
+        using (var db = new Mapeo())
+        {
+            db.reunion.Attach(e_Reunion);
+            var entry = db.Entry(e_Reunion);
+            entry.State = EntityState.Deleted;
+            db.SaveChanges();
+        }
+    }
+
+    public void editEmpresaActa(E_reunion _Reunion)
+    {
+        using (var db = new Mapeo())
+        {
+            E_reunion e_Reunion = db.reunion.Where(x => x.Id == _Reunion.Id).First();
+            e_Reunion.Acta = _Reunion.Acta;
+            db.reunion.Attach(e_Reunion);
+            var entry = db.Entry(e_Reunion);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
 }
