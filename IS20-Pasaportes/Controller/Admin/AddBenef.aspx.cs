@@ -69,7 +69,7 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         }
 
         //---------------------------------//
-        if (!(extension.Equals(".jpg") || extension.Equals(".jpge") || extension.Equals(".png")))
+        if (!(extension.Equals(".jpg") || extension.Equals(".jpeg") || extension.Equals(".png")))
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido o no subio archivo');</script>");
             return;

@@ -246,6 +246,15 @@ public class DAO_Admin
         }
     }
 
+    //Llamar a todos los usuarios
+    public E_user getUserRol()
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Id_rol.Equals(2)).FirstOrDefault();
+        }
+    }
+
     public E_ruta getRuta(string ruta)
     {
         using (var db = new Mapeo())
@@ -303,4 +312,12 @@ public class DAO_Admin
         }
     }
 
+    public void addReunion(E_reunion reunion)
+    {
+        using (var db = new Mapeo())
+        {
+            db.reunion.Add(reunion);
+            db.SaveChanges();
+        }
+    }
 }

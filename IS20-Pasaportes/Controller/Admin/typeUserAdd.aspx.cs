@@ -9,6 +9,13 @@ public partial class View_Admin_typeUserAdd : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["validUser"] != null && ((E_user)Session["validUser"]).Id_rol == 1)
+        {
 
+        }
+        else
+        {
+            Response.Redirect("/View/Login.aspx");
+        }
     }
 }
