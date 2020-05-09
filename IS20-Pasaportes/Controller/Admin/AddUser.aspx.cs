@@ -69,7 +69,7 @@ public partial class View_Admin_AddUser : System.Web.UI.Page
         //---------------------------------//
 
         Send_Mail mail = new Send_Mail();
-        mail.sendMail(e_user.Mail, e_user.Token, e_user.User_name, e_user.Pass, "");
+        mail.sendMail(e_user.Mail, e_user.Token, "Su usuario: " + e_user.User_name, "Su contraseña: " + e_user.Pass, "Bienvenido administrador.");
         new DAO_Admin().addUser(e_user);
         cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario ha sido registrado');</script>");
 
