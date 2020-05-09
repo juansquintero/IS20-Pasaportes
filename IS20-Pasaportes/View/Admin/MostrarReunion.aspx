@@ -72,7 +72,7 @@
                         <strong>Fecha:</strong>
                         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="OBS_Reunion" DataTextField="Fecha" DataValueField="Id" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                         </asp:DropDownList>
-&nbsp; <strong>Acta: <asp:FileUpload ID="FileUpload1" runat="server" />
+&nbsp; <strong>Acta: <asp:FileUpload ID="FU_Acta" runat="server" />
                         </strong>
                     </td>
                     <td>&nbsp;</td>
