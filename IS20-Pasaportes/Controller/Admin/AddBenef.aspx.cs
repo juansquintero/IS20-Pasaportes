@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,6 +25,10 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
     {
         ClientScriptManager cm = this.ClientScript;
 
+        string fileName = System.IO.Path.GetFileName(FU_Foto.PostedFile.FileName);
+        string extension = System.IO.Path.GetExtension(FU_Foto.PostedFile.FileName);        
+        string saveLocation = Server.MapPath("~\\Images\\ProfilePictures\\") + DateTime.Now.ToFileTime().ToString() + extension;
+
         E_user e_user = new E_user();
         e_user.Id_rol = 2;
         e_user.Name = TB_Nombre.Text;
@@ -33,6 +38,7 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         e_user.Mail = TB_Correo.Text;
         e_user.Id_ruta = int.Parse(DDL_NumRuta.SelectedValue);
         e_user.Activo = CB_Activo.Checked;
+        e_user.Profile_pic = saveLocation;
 
     //---------------------------------//
 
@@ -58,6 +64,43 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
                 return;
             }
         }catch (NullReferenceException)
+        {
+
+        }
+
+        //---------------------------------//
+        if (!(extension.Equals(".jpg") || extension.Equals(".jpge") || extension.Equals(".png")))
+        {
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido o no subio archivo');</script>");
+            return;
+        }
+
+        if (System.IO.File.Exists(saveLocation))
+        {
+            File.Delete(saveLocation);
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre');</script>");
+            return;
+        }
+
+        try
+        {
+            FU_Foto.PostedFile.SaveAs(saveLocation);
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El archivo ha sido cargado');</script>");
+        }
+        catch (Exception exc)
+        {
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error: ');</script>");
+            return;
+        }
+        try
+        {
+            if (e_user.Profile_pic == " ")
+            {
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No ha subido ninguna foto');</script>");
+                return;
+            }
+        }
+        catch (NullReferenceException)
         {
 
         }

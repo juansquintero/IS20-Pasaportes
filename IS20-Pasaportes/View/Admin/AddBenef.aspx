@@ -165,9 +165,10 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        &nbsp;</td>
+                        <strong>Foto de perfil:</strong></td>
                     <td class="auto-style5">
-                        &nbsp;</td>
+                        <asp:FileUpload ID="FU_Foto" runat="server" />
+                    </td>
                     <td class="auto-style6">&nbsp;</td>
                 </tr>
                 <tr>

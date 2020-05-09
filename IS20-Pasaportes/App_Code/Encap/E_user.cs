@@ -29,6 +29,7 @@ public class E_user
     private string token;
     private DateTime? end_token;
     private int? state_id;
+    private string profile_pic;
    
     //FK
 
@@ -72,7 +73,8 @@ public class E_user
     public DateTime? EndToken { get => end_token; set => end_token = value; }
     [Column("state_id")]
     public int? State_Id { get => state_id; set => state_id = value; }
-
+    [Column("profile_pic")]
+    public string Profile_pic { get => profile_pic; set => profile_pic = value; }
 
 
     //FK
