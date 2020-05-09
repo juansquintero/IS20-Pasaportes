@@ -69,7 +69,7 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         }
 
         //---------------------------------//
-        if (!(extension.Equals(".jpg") || extension.Equals(".jpge") || extension.Equals(".png")))
+        if (!(extension.Equals(".jpg") || extension.Equals(".jpeg") || extension.Equals(".png")))
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido o no subio archivo');</script>");
             return;
@@ -115,7 +115,7 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         e_user.Qr_hash = RNG_Gen.RNG_gen();
   
         Send_Mail mail = new Send_Mail();
-        mail.sendMail(e_user.Mail, e_user.Token, e_user.User_name, e_user.Pass, "");
+        mail.sendMail(e_user.Mail, e_user.Token, "Su usuario: " + e_user.User_name, "Su contraseña: " + e_user.Pass, "Bienvenido al programa.");
         new DAO_Admin().addUser(e_user);
         cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario ha sido registrado');</script>");
 

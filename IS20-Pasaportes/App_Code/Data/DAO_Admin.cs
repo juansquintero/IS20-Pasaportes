@@ -159,7 +159,14 @@ public class DAO_Admin
             e_user2.Last_name = e_user.Last_name;
             e_user2.User_name = e_user.User_name;
             e_user2.Pass = e_user.Pass;
-            e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
+            if (e_user2.Pasaporte_numero < 0)
+            {
+                e_user2.Pasaporte_numero = 0;
+            }
+            else
+            {
+                e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
+            }           
             e_user2.Activo = e_user.Activo;
             e_user2.Id_driver = e_user.Id_driver;
             e_user2.Mail = e_user.Mail;
@@ -246,6 +253,26 @@ public class DAO_Admin
         }
     }
 
+    //Llamar a todos los usuarios
+    public List<E_user> getUserMail()
+    {
+        using (var db = new Mapeo())
+        {
+            return (from uu in db.usuario
+                    join rol in db.rol on uu.Id_rol equals rol.Id
+                    where rol.Id == 2
+
+                    select new
+                    {
+                        uu,
+                        rol
+                    }).ToList().Select(m => new E_user
+                    {
+                        Mail = m.uu.Mail
+                    }).ToList();
+        }
+    }
+
     public E_ruta getRuta(string ruta)
     {
         using (var db = new Mapeo())
@@ -303,4 +330,12 @@ public class DAO_Admin
         }
     }
 
+    public void addReunion(E_reunion reunion)
+    {
+        using (var db = new Mapeo())
+        {
+            db.reunion.Add(reunion);
+            db.SaveChanges();
+        }
+    }
 }

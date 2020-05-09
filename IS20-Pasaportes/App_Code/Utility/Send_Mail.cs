@@ -22,12 +22,12 @@ public class Send_Mail
             var strBody = string.Format(EmailTemplate.ReadToEnd(), userToken);
             EmailTemplate.Close(); EmailTemplate.Dispose(); EmailTemplate = null;
 
-            strBody = strBody.Replace("#TOKEN#", "Su usuario es: " + user + " Su contraseña es: " + pass + userToken + extra);
+            strBody = strBody.Replace("#TOKEN#",userToken + "" + user + "" + pass + "" + userToken + "" + extra);
             MailMessage mailM = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             mailM.From = new MailAddress("SABT_registro@sabt.com", "SABT");
             SmtpServer.Host = "smtp.gmail.com";
-            mailM.Subject = "Bienvenido";
+            mailM.Subject = "Informacion SABT";
             mailM.Body = strBody;
             mailM.To.Add(destMail);
             mailM.IsBodyHtml = true;

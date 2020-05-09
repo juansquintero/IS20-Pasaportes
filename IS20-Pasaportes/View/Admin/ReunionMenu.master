@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Admin/ReunionMenu.master.cs" Inherits="View_Admin_ReunionMenu" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BEDTRANS - Reuniones</title>
+    <link href="../../App_Themes/CSS/AdminHome.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<html>  
+<head>  
+    <title>my layout</title>  
+    <link rel="stylesheet" type="text/css" href="AdminHome.css">  
+</head>  
+<body>  
+<header id="header">  
+<h1>Beneficio de trasporte</h1>  
+</header>  
+<nav id="nav">  
+    <ul>  
+        <li><a href="AddReunion.aspx">Añadir Reunion</a></li>  
+        <li><a href="MostrarDriver.aspx">Mostrar Reuniones</a></li>   
+        <li><a href="../AdminHome.aspx">Salir</a></li>    
+    </ul>  
+</nav>  
+    <div id="con">  
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">  
+          <header id="header2">
+              <h1 style="text-align:center">Bienvenido administrador</h1>
+          </header>
+            <img src="../../Images/hello.jpeg" alt="reunion" style="width:100%;">
+                    </asp:ContentPlaceHolder>  
+    </div>  
+
+
+<footer id="footer">  
+    Juan Sebastian Quintero | Mateo Villalobos
+</footer>  
+</body>
+</html>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
