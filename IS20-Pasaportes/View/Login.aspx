@@ -27,14 +27,25 @@
             <div >  
                 <table style="width:100%;">  
                     <caption class="style1">  
-                        <strong>Bienvenido, inicio de sesion</strong>  
                     </caption>  
+                    <tr>  
+                        <td class="style2" colspan="3">  
+                            &nbsp;</td>  
+                    </tr>  
+                    <tr>  
+                        <td class="style2" colspan="3">  
+                            &nbsp;</td>  
+                    </tr>  
+                    <tr>  
+                        <td class="style2" colspan="3">  
+                            &nbsp;</td>  
+                    </tr>  
                     <tr>  
                         <td class="style2" colspan="3">  
      </td>  
                     </tr>  
                     <tr>  
-                        <td class="style2" colspan="3">  
+                        <td align="center" class="style2" colspan="3">  
                             <asp:Login ID="LG_Proyecto" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Width="1155px" FailureText="Hubo un error en un inicio de sesion" LoginButtonText="Entrar" OnAuthenticate="LG_Proyecto_Authenticate" PasswordLabelText="Contraseña:" PasswordRequiredErrorMessage="Contraseña requerida" RememberMeText="Recuerdame para la proxima" TextLayout="TextOnTop" TitleText="Inicio de sesion" UserNameLabelText="Usuario:" UserNameRequiredErrorMessage="Usuario requerido">
                                 <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                                 <LayoutTemplate>

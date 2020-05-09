@@ -22,7 +22,7 @@
 <nav id="nav">  
     <ul>  
         <li><a href="AddReunion.aspx">Añadir Reunion</a></li>  
-        <li><a href="MostrarDriver.aspx">Mostrar Reuniones</a></li>   
+        <li><a href="MostrarReunion.aspx">Mostrar Reuniones</a></li>   
         <li><a href="../AdminHome.aspx">Salir</a></li>    
     </ul>  
 </nav>  
