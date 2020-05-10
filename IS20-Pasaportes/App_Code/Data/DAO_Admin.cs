@@ -85,10 +85,11 @@ public class DAO_Admin
                         Last_name = m.uu.Last_name,
                         User_name = m.uu.User_name,
                         Pass = m.uu.Pass,
+                        Id_driver = m.uu.Id_driver,
                         Driver_total_pasaporte = m.uu.Driver_total_pasaporte,
                         Id_ruta = m.uu.Id_ruta,
                         Name_ruta = m.uu.Name_ruta,
-                        Id_driver = m.uu.Id_driver,
+                        Name_empresa = m.uu.Name_empresa,
                         Mail = m.uu.Mail,
                         Id_rol = m.uu.Id_rol
                     }).ToList();
@@ -159,14 +160,14 @@ public class DAO_Admin
             e_user2.Last_name = e_user.Last_name;
             e_user2.User_name = e_user.User_name;
             e_user2.Pass = e_user.Pass;
-            if (e_user2.Pasaporte_numero < 0)
-            {
-                e_user2.Pasaporte_numero = 0;
-            }
-            else
-            {
+            //if (e_user.Pasaporte_numero < 0)
+            //{
+            //    e_user2.Pasaporte_numero = 0;
+            //}
+           // else
+           // {
                 e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
-            }           
+           // }           
             e_user2.Activo = e_user.Activo;
             e_user2.Id_driver = e_user.Id_driver;
             e_user2.Mail = e_user.Mail;

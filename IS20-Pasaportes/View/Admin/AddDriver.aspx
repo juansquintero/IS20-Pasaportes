@@ -177,9 +177,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:Button ID="BT_Enviar" runat="server" OnClick="BT_Enviar_Click" Text="Enviar" />
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style5">
+                        <asp:Button ID="BT_Enviar" runat="server" OnClick="BT_Enviar_Click" Text="Enviar" />
                         <asp:Button ID="BT_Salir" runat="server" OnClick="BT_Salir_Click" Text="Salir" CausesValidation="False" />
                     </td>
                     <td class="auto-style6">&nbsp;</td>
