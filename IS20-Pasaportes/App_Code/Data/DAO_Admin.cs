@@ -70,13 +70,15 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return (from uu in db.usuario
+                    join driver in db.driver on uu.Id_driver equals driver.Id
                     join rol in db.rol on uu.Id_rol equals rol.Id
                     where rol.Id == 3
 
                     select new
                     {
                         uu,
-                        rol
+                        rol,
+                        driver
                     }).ToList().Select(m => new E_user
                     {
                         Id = m.uu.Id,
@@ -86,10 +88,10 @@ public class DAO_Admin
                         User_name = m.uu.User_name,
                         Pass = m.uu.Pass,
                         Id_driver = m.uu.Id_driver,
-                        Driver_total_pasaporte = m.uu.Driver_total_pasaporte,
+                        Driver_total_pasaporte = m.driver.Total_pasaporte,
                         Id_ruta = m.uu.Id_ruta,
                         Name_ruta = m.uu.Name_ruta,
-                        Name_empresa = m.uu.Name_empresa,
+                        Name_empresa = m.driver.Empresa,
                         Mail = m.uu.Mail,
                         Id_rol = m.uu.Id_rol
                     }).ToList();
@@ -160,14 +162,7 @@ public class DAO_Admin
             e_user2.Last_name = e_user.Last_name;
             e_user2.User_name = e_user.User_name;
             e_user2.Pass = e_user.Pass;
-            //if (e_user.Pasaporte_numero < 0)
-            //{
-            //    e_user2.Pasaporte_numero = 0;
-            //}
-           // else
-           // {
-                e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
-           // }           
+            e_user2.Pasaporte_numero = e_user.Pasaporte_numero;          
             e_user2.Activo = e_user.Activo;
             e_user2.Id_driver = e_user.Id_driver;
             e_user2.Mail = e_user.Mail;
@@ -303,9 +298,12 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             db.driver.Add(empresa);
+            //db.driver.Include(x => x.Empresa);
             db.SaveChanges();
         }
     }
+
+
 
     public void editEmpresa(E_driver _driver)
     {

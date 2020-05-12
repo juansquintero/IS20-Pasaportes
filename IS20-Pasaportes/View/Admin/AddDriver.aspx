@@ -1,18 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Admin/AddDriver.aspx.cs" Inherits="View_Admin_AddDriver" %>
 
 <!DOCTYPE html>
-<script runat="server">
 
-    protected void BT_Enviar_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void BT_Salir_Click(object sender, EventArgs e)
-    {
-
-    }
-</script>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">

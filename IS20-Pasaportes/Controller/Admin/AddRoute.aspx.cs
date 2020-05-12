@@ -21,7 +21,7 @@ public partial class View_Admin_AddRoute : System.Web.UI.Page
 
     protected void BT_Salir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/View/Admin/RouteDrivers.aspx");
+        Response.Redirect("/View/Admin/RoutesDrivers.aspx");
     }
 
     protected void BT_Guardar_Click(object sender, EventArgs e)

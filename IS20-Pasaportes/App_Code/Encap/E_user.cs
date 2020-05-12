@@ -34,9 +34,10 @@ public class E_user
     //FK
 
     private string name_empresa;
-    private int driver_total_pasaporte;
+    private int? driver_total_pasaporte;
     private string name_rol;
     private string name_ruta;
+    private string Empresa;
 
     [Key]
     [Column("id")]
@@ -82,10 +83,11 @@ public class E_user
     [NotMapped]
     public string Name_empresa { get => name_empresa; set => name_empresa = value; }
     [NotMapped]
-    public int Driver_total_pasaporte { get => driver_total_pasaporte; set => driver_total_pasaporte = value; }
+    public int? Driver_total_pasaporte { get => driver_total_pasaporte; set => driver_total_pasaporte = value; }
     [NotMapped]
     public string Name_rol { get => name_rol; set => name_rol = value; }
     [NotMapped]
     public string Name_ruta { get => name_ruta; set => name_ruta = value; }
-    
+    [NotMapped]
+    public string Empresa1 { get => Empresa; set => Empresa = value; }
 }
