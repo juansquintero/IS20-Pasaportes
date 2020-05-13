@@ -15,7 +15,7 @@ public partial class View_Admin_MostrarAdmin : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/View/Login.aspx");
+            Response.Redirect("~/View/Login.aspx");
         }
 
 
@@ -28,7 +28,7 @@ public partial class View_Admin_MostrarAdmin : System.Web.UI.Page
 
     protected void BT_Salir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/View/Admin/MostrarUsersMenu.aspx");
+        Response.Redirect("~/View/Admin/MostrarUsersMenu.aspx");
     }
 
     protected void ODS_UsersMostrar_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)

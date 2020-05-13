@@ -15,7 +15,7 @@ public partial class View_Admin_MostrarRoutes : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/View/Login.aspx");
+            Response.Redirect("~/View/Login.aspx");
         }
     }
 }

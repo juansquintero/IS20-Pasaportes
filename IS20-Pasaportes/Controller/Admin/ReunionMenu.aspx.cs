@@ -15,7 +15,7 @@ public partial class View_Admin_ReunionMenu : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/View/Login.aspx");
+            Response.Redirect("~/View/Login.aspx");
         }
     }
 }

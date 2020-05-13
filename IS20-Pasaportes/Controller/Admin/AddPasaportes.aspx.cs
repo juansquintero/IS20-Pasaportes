@@ -15,13 +15,13 @@ public partial class View_Admin_AddPasaportes : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/View/Login.aspx");
+            Response.Redirect("~/View/Login.aspx");
         }
     }
 
     protected void BT_Salir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/View/AdminHome.aspx");
+        Response.Redirect("~/View/AdminHome.aspx");
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

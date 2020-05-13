@@ -17,7 +17,7 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/View/Login.aspx");
+            Response.Redirect("~/View/Login.aspx");
         }
     }
 
@@ -130,6 +130,6 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
 
     protected void BT_Salir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/View/Admin/typeUserAdd.aspx");
+        Response.Redirect("~/View/Admin/typeUserAdd.aspx");
     }
 }
