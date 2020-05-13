@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class View_User_UserInfo : System.Web.UI.Page
+public partial class View_User_ReunionesPendientes : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -17,22 +17,10 @@ public partial class View_User_UserInfo : System.Web.UI.Page
         {
             Response.Redirect("~/Login.aspx");
         }
-
-        E_user e_user = new E_user();
-        LB_Nombre.Text = ((E_user)Session["validUser"]).Name;
-        LB_Apellido.Text = ((E_user)Session["validUser"]).Last_name; 
-        LB_PasDisponibles.Text = ((E_user)Session["validUser"]).Pasaporte_numero.ToString(); 
-
     }
 
     protected void BT_Salir_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/View/UserHome.aspx");
-    }
-
-    protected void BT_PassChange_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("UserChangePass.aspx");
-
     }
 }

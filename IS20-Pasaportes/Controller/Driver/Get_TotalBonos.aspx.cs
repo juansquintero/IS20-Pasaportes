@@ -15,7 +15,7 @@ public partial class View_Driver_Get_TotalBonos : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/View/Login.aspx");
+            Response.Redirect("~/View/Login.aspx");
         }
 
         E_user e_user = new E_user();
@@ -29,6 +29,6 @@ public partial class View_Driver_Get_TotalBonos : System.Web.UI.Page
 
     protected void BT_Salir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/View/DriverHome.aspx");
+        Response.Redirect("~/View/DriverHome.aspx");
     }
 }

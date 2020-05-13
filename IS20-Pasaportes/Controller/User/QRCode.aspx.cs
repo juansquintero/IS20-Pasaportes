@@ -18,7 +18,7 @@ public partial class View_User_QRCode : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/View/Login.aspx");
+            Response.Redirect("~/View/Login.aspx");
         }
 
 
@@ -49,6 +49,6 @@ public partial class View_User_QRCode : System.Web.UI.Page
 
     protected void BT_Session_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/View/AdminHome.aspx");
+        Response.Redirect("~/View/AdminHome.aspx");
     }
 }

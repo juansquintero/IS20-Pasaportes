@@ -80,6 +80,6 @@ public partial class _Default : System.Web.UI.Page
 
     protected void BT_Salir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/View/DriverHome.aspx");
+        Response.Redirect("~/View/DriverHome.aspx");
     }
 }

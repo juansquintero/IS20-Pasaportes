@@ -387,4 +387,6 @@ public class DAO_Admin
             return db.reunion.Where(x => x.Id.Equals(acta)).FirstOrDefault();
         }
     }
+
+
 }
