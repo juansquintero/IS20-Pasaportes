@@ -25,6 +25,7 @@
         <li><a href="Admin/typeUserAdd.aspx">Añadir usuario</a></li>    
         <li><a href="Admin/RoutesDrivers.aspx">Empresas y rutas</a></li> 
         <li><a href="Admin/AddPasaportes.aspx">Pasaportes beneficiarios</a></li>  
+        <li><a href="Admin/ReporteUsuario.aspx">Reporte usuario</a></li>  
         <li><a href="Admin/ReunionMenu.aspx">Reuniones</a></li>
         <li><a href="sessionClose.aspx">Cerrar sesion</a></li>
     </ul>  
