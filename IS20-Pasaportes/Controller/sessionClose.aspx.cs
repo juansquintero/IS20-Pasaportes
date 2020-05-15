@@ -16,6 +16,6 @@ public partial class View_sessionClose : System.Web.UI.Page
         Session["validUser"] = null;
         Session.Abandon();
         Session.Clear();
-        Response.Redirect("/View/Login.aspx");
+        Response.Redirect("~/View/Login.aspx");
     }
 }
