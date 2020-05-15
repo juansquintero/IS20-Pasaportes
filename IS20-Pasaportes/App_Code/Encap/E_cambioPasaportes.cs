@@ -8,17 +8,15 @@ using System.Web;
 /// <summary>
 /// Summary description for E_cambioPasaportes
 /// </summary>
+[Serializable]
+[Table("cambioPasaportes", Schema = "proyecto")]
 public class E_cambioPasaportes
 {
-    [Serializable]
-    [Table("cambioPasaportes", Schema = "proyecto")]
-    public class E_Auth
-    {
         private int id;
         private string session;
         private DateTime? changeDate;
         private string user_name;
-        private int pasaportesAmount;
+        private int? pasaportesAmount;
 
         [Key]
         [Column("id")]
@@ -30,10 +28,9 @@ public class E_cambioPasaportes
         [Column("user_name")]
         public string User_name { get => user_name; set => user_name = value; }
         [Column("pasaportesAmount")]
-        public int PasaportesAmount { get => pasaportesAmount; set => pasaportesAmount = value; }
+        public int? PasaportesAmount { get => pasaportesAmount; set => pasaportesAmount = value; }
 
         
         
 
-    }
 }

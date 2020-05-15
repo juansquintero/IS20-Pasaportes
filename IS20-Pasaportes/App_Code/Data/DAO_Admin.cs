@@ -183,12 +183,21 @@ public class DAO_Admin
     {
         using (var db = new Mapeo())
         {
-            E_user e_user2 = db.usuario.Where(x => x.Id == e_user.Id).First();            
+            E_user e_user2 = db.usuario.Where(x => x.Id == e_user.Id).First();
             e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
 
             db.usuario.Attach(e_user2);
             var entry = db.Entry(e_user2);
             entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
+
+    public void pasaportesCambio(E_cambioPasaportes e_CambioPasaportes)
+    {
+        using (var db = new Mapeo())
+        {
+            db.cambioPasaportes.Add(e_CambioPasaportes);
             db.SaveChanges();
         }
     }
@@ -246,6 +255,14 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             return db.usuario.Where(x => x.User_name.Equals(user)).FirstOrDefault();
+        }
+    }
+
+    public E_user getUserId(int user)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Id.Equals(user)).FirstOrDefault();
         }
     }
 

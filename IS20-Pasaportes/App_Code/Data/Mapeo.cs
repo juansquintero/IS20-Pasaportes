@@ -25,6 +25,7 @@ public class Mapeo : DbContext
     public DbSet<E_driver> driver { get; set; }
     public DbSet<E_reunion> reunion { get; set;}
     public DbSet<E_Auth> autentication { get; set; }
+    public DbSet<E_cambioPasaportes> cambioPasaportes { get; set; }
     //---------------------------------------//
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {

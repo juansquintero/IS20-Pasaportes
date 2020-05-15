@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="OBS_Pasaportes" ForeColor="#333333" GridLines="None" Width="100%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="OBS_Pasaportes" ForeColor="#333333" GridLines="None" Width="100%" OnRowUpdating="GridView1_RowUpdating" DataKeyNames="Id">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="Id" HeaderText="ID" ReadOnly="True" SortExpression="Id" />
@@ -35,7 +35,7 @@
                                 <asp:BoundField DataField="User_name" HeaderText="Usuario" ReadOnly="True" SortExpression="User_name" />
                                 <asp:BoundField DataField="Pasaporte_numero" HeaderText="Pasaportes" SortExpression="Pasaporte_numero" />
                                 <asp:CheckBoxField DataField="Activo" HeaderText="Activo" SortExpression="Activo" ReadOnly="True" />
-                                <asp:CommandField EditText="Editar" HeaderText="Editar" ShowEditButton="True" />
+                                <asp:CommandField EditText="Editar" HeaderText="Editar" ShowEditButton="True" ButtonType="Button" />
                             </Columns>
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
