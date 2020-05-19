@@ -101,7 +101,16 @@ public partial class _Default : System.Web.UI.Page
             LB_LastName.Text = e_User.Last_name;
             LB_Code.Text = result;
             LB_Bonos.Text = e_User.Pasaporte_numero.ToString();
-            e_User.Pasaporte_numero = e_User.Pasaporte_numero - 1;
+            if (e_User.Pasaporte_numero <= 0)
+            {
+                e_User.Pasaporte_numero = 0;
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No tiene pasaportes disponibles');</script>");
+                return;
+            }
+            else
+            {
+                e_User.Pasaporte_numero = e_User.Pasaporte_numero - 1;
+            }            
             string num = ((E_user)Session["validUser"]).Id_driver.ToString();
             E_driver ps = new DAO_Admin().getNoPasaportes(int.Parse(num));
             ps.Total_pasaporte = ps.Total_pasaporte + 1;

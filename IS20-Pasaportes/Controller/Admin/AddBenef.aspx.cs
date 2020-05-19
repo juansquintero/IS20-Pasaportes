@@ -109,6 +109,7 @@ public partial class View_Admin_AddBenef : System.Web.UI.Page
 
         e_user.LastModified = DateTime.Now;
         e_user.Sesion = ((E_user)Session["validUser"]).User_name;
+        e_user.Pasaporte_numero = 0;
         
         //---------------------------------//
         //Generador de usuario ahora en User/QRCode.aspx.cs
