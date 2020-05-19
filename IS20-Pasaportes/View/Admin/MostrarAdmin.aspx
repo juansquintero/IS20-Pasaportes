@@ -28,7 +28,7 @@
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ODS_UsersMostrar" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="100%" AllowPaging="True" AllowSorting="True" RowHeaderColumn="Id" DataKeyNames="Id">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Id" />
+                                <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Id" ReadOnly="True" />
                                 <asp:BoundField DataField="Name" HeaderText="Nombre" SortExpression="Name" />
                                 <asp:BoundField DataField="Last_name" HeaderText="Apellido" SortExpression="Last_name" />
                                 <asp:BoundField DataField="User_name" HeaderText="Usuario" SortExpression="User_name" />

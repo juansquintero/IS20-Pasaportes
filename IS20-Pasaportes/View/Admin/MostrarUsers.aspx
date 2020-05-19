@@ -27,7 +27,7 @@
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ODS_UsersMostrar" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="100%" AllowPaging="True" DataKeyNames="Id">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" ReadOnly="True" />
                                 <asp:BoundField DataField="Name" HeaderText="Nombre" SortExpression="Name" />
                                 <asp:BoundField DataField="Last_name" HeaderText="Apellido" SortExpression="Last_name" />
                                 <asp:BoundField DataField="User_name" HeaderText="Usuario" SortExpression="User_name" />
@@ -37,7 +37,6 @@
                                 <asp:BoundField DataField="Name_ruta" HeaderText="Ruta" SortExpression="Name_ruta" />
                                 <asp:BoundField DataField="Mail" HeaderText="Correo" SortExpression="Mail" />
                                 <asp:CommandField EditText="Editar" HeaderText="Editar" ShowEditButton="True" />
-                                <asp:CommandField HeaderText="Borrar" ShowDeleteButton="True" DeleteText="Borrar" />
                             </Columns>
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
