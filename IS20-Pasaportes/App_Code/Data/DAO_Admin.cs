@@ -184,8 +184,15 @@ public class DAO_Admin
         using (var db = new Mapeo())
         {
             E_user e_user2 = db.usuario.Where(x => x.Id == e_user.Id).First();
-            e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
 
+            if (e_user.Pasaporte_numero <= 0)
+            {
+                e_user2.Pasaporte_numero = 0;
+            }
+            else
+            {
+                e_user2.Pasaporte_numero = e_user.Pasaporte_numero;
+            }           
             db.usuario.Attach(e_user2);
             var entry = db.Entry(e_user2);
             entry.State = EntityState.Modified;
@@ -405,5 +412,84 @@ public class DAO_Admin
         }
     }
 
+    public List<E_user> getUserActivo()
+    {
+        using (var db = new Mapeo())
+        {
+            return (from uu in db.usuario
+                    join rol in db.rol on uu.Id_rol equals rol.Id
+                    where rol.Id == 2 && uu.Activo == true
 
+                    select new
+                    {
+                        uu,
+                        rol
+                    }).ToList().Select(m => new E_user
+                    {
+                        Id = m.uu.Id,                       
+                        Name = m.uu.Name,
+                        Last_name = m.uu.Last_name,
+                        User_name = m.uu.User_name,
+                        Pasaporte_numero = m.uu.Pasaporte_numero,
+                        Name_ruta = m.uu.Name_ruta,
+                        Activo = m.uu.Activo
+                    }).ToList();
+        }
+    }
+
+    public void addReport(E_reportes reporte)
+    {
+        using (var db = new Mapeo())
+        {
+            db.reportes.Add(reporte);
+            db.SaveChanges();
+        }
+    }
+
+    public List<E_reportes> getReportesList()
+    {
+        using (var db = new Mapeo())
+        {
+            return (from uu in db.reportes
+
+                    select new
+                    {
+                        uu
+                    }).ToList().Select(m => new E_reportes
+                    {
+                        Id = m.uu.Id,
+                        ReportDate = m.uu.ReportDate,
+                        Path = m.uu.Path
+                    }).ToList();
+        }
+    }
+
+    public E_reportes getIdReporte(int reporte)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.reportes.Where(x => x.Id.Equals(reporte)).FirstOrDefault();
+        }
+    }
+
+    public E_driver getNoPasaportes(int pas)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.driver.Where(x => x.Id.Equals(pas)).FirstOrDefault();
+        }
+    }
+
+    public void editPasaportesCobrados(E_driver e_Driver)
+    {
+        using (var db = new Mapeo())
+        {
+            E_driver e_driver = db.driver.Where(x => x.Id == e_Driver.Id).First();
+            e_driver.Total_pasaporte = e_Driver.Total_pasaporte;
+            db.driver.Attach(e_driver);
+            var entry = db.Entry(e_driver);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
 }

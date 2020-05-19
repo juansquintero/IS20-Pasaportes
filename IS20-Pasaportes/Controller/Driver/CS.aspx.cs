@@ -28,6 +28,15 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
         }
+
+        if (Session["validUser"] != null && ((E_user)Session["validUser"]).Id_rol == 3)
+        {
+
+        }
+        else
+        {
+            Response.Redirect("~/View/Login.aspx");
+        }
     }
 
     private static byte[] ConvertHexToBytes(string hex)
@@ -52,10 +61,31 @@ public partial class _Default : System.Web.UI.Page
     protected void BT_Escanear_Click(object sender, EventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;
-        string[] data = BarcodeReader.read(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Captures/qr_code.png"), BarcodeReader.QRCODE);
-        string result = String.Concat(data);
+        string[] data = BarcodeReader.read(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Captures/qr_code.png"), BarcodeReader.QRCODE);       
+        try
+        {
+            string result = String.Concat(data);
+            scan(result);
+        }
+        catch (NullReferenceException)
+        {
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No es un codigo QR');</script>");
+            return;
+        }
+        
+
+    }
+
+    protected void BT_Salir_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/View/DriverHome.aspx");
+    }
+
+    public void scan(string result)
+    {
+        ClientScriptManager cm = this.ClientScript;
         E_user e_User = new DAO_Admin().getQrUser(result);
-        if (result == null || result == "") 
+        if (result == null || result == "")
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El usuario no existe o el codigo no funciona');</script>");
             return;
@@ -66,20 +96,19 @@ public partial class _Default : System.Web.UI.Page
             return;
         }
         else
-        {            
+        {
             LB_Name.Text = e_User.Name;
             LB_LastName.Text = e_User.Last_name;
             LB_Code.Text = result;
             LB_Bonos.Text = e_User.Pasaporte_numero.ToString();
             e_User.Pasaporte_numero = e_User.Pasaporte_numero - 1;
+            string num = ((E_user)Session["validUser"]).Id_driver.ToString();
+            E_driver ps = new DAO_Admin().getNoPasaportes(int.Parse(num));
+            ps.Total_pasaporte = ps.Total_pasaporte + 1;
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El pasaporte se ha cobrado');</script>");
             new DAO_Admin().editUser(e_User);
+            new DAO_Admin().editPasaportesCobrados(ps);
         }
         File.Delete(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Captures/qr_code.png"));
-    }
-
-    protected void BT_Salir_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/View/DriverHome.aspx");
     }
 }

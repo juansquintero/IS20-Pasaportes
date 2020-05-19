@@ -19,11 +19,13 @@ public partial class View_Driver_Get_TotalBonos : System.Web.UI.Page
         }
 
         E_user e_user = new E_user();
-        E_driver e_driver = new E_driver();
+        string num = ((E_user)Session["validUser"]).Id_driver.ToString();
+        E_driver ps = new DAO_Admin().getNoPasaportes(int.Parse(num));
 
-        LB_Nombre.Text = e_user.Name;
-        LB_Apellido.Text = e_user.Last_name;
-        LB_Bonos.Text = e_driver.Total_pasaporte.ToString();  
+
+        LB_Nombre.Text = ((E_user)Session["validUser"]).Name;
+        LB_Apellido.Text = ((E_user)Session["validUser"]).Last_name;
+        LB_Bonos.Text = ps.Total_pasaporte.ToString();  
 
     }
 

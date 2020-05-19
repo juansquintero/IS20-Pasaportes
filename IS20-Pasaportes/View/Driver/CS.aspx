@@ -59,7 +59,8 @@ $(function () {
 });
 function Capture() {
     webcam.capture();
-    alert("Presione escanear");
+    //alert("Presione escanear");
+    document.getElementById('<%=BT_Escanear.ClientID %>').style.display = "block";
     return false;
 }
 </script>
@@ -116,7 +117,7 @@ function Capture() {
         <tr>
             <td align="center">
 <asp:Button ID="btnCapture" Text="Capturar" runat="server" OnClientClick="return Capture();" OnClick="BT_Escanear_Click" />
-    <asp:Button ID="BT_Escanear" runat="server" OnClick="BT_Escanear_Click" Text="Escanear" />
+    <asp:Button ID="BT_Escanear" runat="server" OnClick="BT_Escanear_Click" Text="Escanear" Visible="False" />
     <asp:Button ID="BT_Salir" runat="server" OnClick="BT_Salir_Click" Text="Salir" />
             </td>
             <td>&nbsp;</td>
