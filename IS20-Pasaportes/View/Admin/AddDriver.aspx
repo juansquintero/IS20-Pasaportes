@@ -114,8 +114,10 @@
                     <td class="auto-style5">
                         <asp:TextBox ID="TB_Pass" runat="server" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" id="RFV4" controltovalidate="TB_Pass" errormessage="!Este campo es obligatorio!" />
-                        <asp:CompareValidator ID="cv" runat="server" ControlToValidate="TB_Pass" Type="Integer"
-                        Operator="DataTypeCheck" ErrorMessage="!Solo se admiten numeros!" />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+ControlToValidate="TB_Pass"
+ErrorMessage="La contraseña debe tener minimo 8 caracteres y una letra y numero"
+ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
 
                     </td>
                     <td class="auto-style6">&nbsp;</td>

@@ -22,7 +22,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="TB_Correo" runat="server" Height="22px" TextMode="Email"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RFV_Correo" runat="server" ControlToValidate="TB_Correo" ErrorMessage="*"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RFV_Correo" runat="server" ControlToValidate="TB_Correo" ErrorMessage="Ingrese un correo"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TB_Correo" ErrorMessage="Formato de correo invalido"></asp:RegularExpressionValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
