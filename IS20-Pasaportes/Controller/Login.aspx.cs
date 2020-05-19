@@ -79,4 +79,11 @@ public partial class View_Login : System.Web.UI.Page
         ((TextBox)LG_Proyecto.FindControl("TB_Validate")).Visible = true;
         ((Button)LG_Proyecto.FindControl("BT_Recuperar")).Visible = true;
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //Response.AddHeader("content-disposition", "inline; filename=" + "~/Manual.pdf");
+        //Response.Redirect(System.IO.Path.Combine(Request.PhysicalApplicationPath, "Manual.pdf"));
+        Response.Redirect("https://github.com/juansquintero/IS20-Pasaportes/blob/master/Manual%20de%20usuario.pdf");
+    }
 }

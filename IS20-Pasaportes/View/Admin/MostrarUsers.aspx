@@ -32,7 +32,7 @@
                                 <asp:BoundField DataField="Last_name" HeaderText="Apellido" SortExpression="Last_name" />
                                 <asp:BoundField DataField="User_name" HeaderText="Usuario" SortExpression="User_name" />
                                 <asp:BoundField DataField="Pass" HeaderText="Constraseña" SortExpression="Pass" />
-                                <asp:BoundField DataField="Pasaporte_numero" HeaderText="Pasaportes" SortExpression="Pasaporte_numero" />
+                                <asp:BoundField DataField="Pasaporte_numero" HeaderText="Pasaportes" SortExpression="Pasaporte_numero" ReadOnly="True" />
                                 <asp:CheckBoxField DataField="Activo" HeaderText="Activo" SortExpression="Activo" />
                                 <asp:BoundField DataField="Name_ruta" HeaderText="Ruta" SortExpression="Name_ruta" />
                                 <asp:BoundField DataField="Mail" HeaderText="Correo" SortExpression="Mail" />
