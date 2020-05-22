@@ -2,7 +2,7 @@
 
 # Pasaportes de transporte proyecto IS20
 
-Este es un proyecto enfocado en la automatizacion de el sistema que utilizan la alcaldia de Mosquera para la entrega y utilizacion de bonos de trasporte entregados a los estudiantes de cualquier institucion de educacion superior que quede fuera de el municipio.
+Este es un proyecto enfocado en la automatizacion de el sistema que utilizan la alcaldia de Mosquera para la entrega y utilizacion de bonos de transporte entregados a los estudiantes de cualquier institucion de educacion superior que quede fuera de el municipio.
 
 
   - Eliminacion de pasaportes en papel
