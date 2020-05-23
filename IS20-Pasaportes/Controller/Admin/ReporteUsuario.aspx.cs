@@ -37,13 +37,12 @@ public partial class View_Admin_ReporteUsuario : System.Web.UI.Page
 
     protected void BT_Purgar_Click(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void BT_MostrarReporte_Click(object sender, EventArgs e)
     {
         Response.Redirect("MostrarReport.aspx");
-
     }
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

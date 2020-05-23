@@ -492,4 +492,12 @@ public class DAO_Admin
             db.SaveChanges();
         }
     }
+
+    public void purgeUsers()
+    {
+        using (var db = new Mapeo())
+        {
+            var test = db.usuario.Where(x => x.Pasaporte_numero >= 1);           
+        }
+    }
 }
