@@ -7,7 +7,7 @@ using QRCoder;
 using System.IO;
 using System.Drawing;
 
-/// Funciones administrador 
+/// Funciones administrador todo
 
 public class DAO_Admin
 {
